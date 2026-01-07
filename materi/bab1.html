@@ -1,0 +1,258 @@
+<!--
+Nama file       : materi/bab1.html
+Tanggal ngoding : Rabu, 7 Januari 2026
+Kelas           : 05TPLP017
+Kelompok        : Kelompok 3
+Anggota         : Al Amin Abdilah, Alif Ananda, Yuda Prima
+Deskripsi       : Halaman Materi Bab 1 - Pendahuluan Web Development (Sesuai dengan Konten Makalah Baru).
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 1: Pendahuluan - CodeDock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Table untuk Alat Pengembangan */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .tool-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <!-- LOGO IMAGE (Link with ../) -->
+            <a href="index.html" class="logo">
+                <img src="images/CodeDc.png" alt="CodeDock Logo" style="height: 60px; object-fit: contain;">
+            </a>
+            
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="bab1.html">Bab 1: Pendahuluan</a>
+                        <a href="bab2.html">Bab 2: Fondasi HTML5</a>
+                        <a href="bab3.html">Bab 3: CSS & Tailwind</a>
+                        <a href="bab4.html">Bab 4: JavaScript</a>
+                        <a href="bab5.html">Bab 5: Integrasi</a>
+                        <a href="bab6.html">Bab 6: Best Practices</a>
+                        <a href="bab7.html">Bab 7: UI/UX & Optimasi</a>
+                    </div>
+                </li>
+                <li><a href="../about.html">Tentang</a></li>
+                <li><a href="../contact.html">Kontak</a></li>
+                <li><a href="../login.html" class="btn btn-primary" id="auth-btn">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 80px; padding-top: 40px;">
+        
+        <!-- HEADER BAB -->
+        <div class="chapter-header" style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);">
+            <div>
+                <span class="badge-pill" style="margin-bottom: 10px; display: inline-block;">Bab 1</span>
+                <h1 style="color: #1e293b; margin-bottom: 10px;">Pendahuluan Web Development</h1>
+                <p style="color: #64748b;">Memahami evolusi teknologi web, peran frontend, dan ekosistem pengembangan modern.</p>
+            </div>
+            <div style="text-align: right;">
+                <span style="display: block; font-size: 0.9rem; color: #64748b;">Estimasi</span>
+                <strong style="color: #16a34a; font-size: 1.2rem;">45 Menit</strong>
+            </div>
+        </div>
+
+        <div class="materi-layout" style="padding: 0; display: flex; flex-direction: column; gap: 30px;">
+            
+            <!-- NAVIGASI MATERI (ATAS) -->
+            <div class="bento-card" style="padding: 25px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-list-ul" style="color: var(--primary);"></i> Navigasi Materi
+                </h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="bab1.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f0fdf4; border: 1px solid #16a34a; border-radius: 8px; color: #16a34a; font-weight: 700; font-size: 0.9rem; white-space: nowrap;">Bab 1</a>
+                    <a href="bab2.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 2</a>
+                    <a href="bab3.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 3</a>
+                    <a href="bab4.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 4</a>
+                    <a href="bab5.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 5</a>
+                    <a href="bab6.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 6</a>
+                    <a href="bab7.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 7</a>
+                </div>
+            </div>
+
+            <!-- KONTEN -->
+            <main style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- 1.1 Perkembangan Teknologi Web -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-history"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">1.1 Perkembangan Teknologi Web</h2>
+                    </div>
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Dunia pengembangan web (web development) telah mengalami evolusi yang sangat cepat dalam dua dekade terakhir. Secara historis, evolusi ini dapat dibagi menjadi tiga fase utama:
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <!-- 1.1.1 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">1.1.1 Web 1.0 (The Static Web)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Era di mana website hanya bersifat "baca saja" (read-only). Halaman web dibangun murni menggunakan HTML statis tanpa interaktivitas.
+                            </p>
+                        </div>
+                        <!-- 1.1.2 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">1.1.2 Web 2.0 (The Social Web)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Era interaktif saat ini. Pengguna bisa membuat konten (user-generated), berkomentar, dan berinteraksi. Teknologi AJAX dan JavaScript mendominasi.
+                            </p>
+                        </div>
+                        <!-- 1.1.3 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">1.1.3 Web 3.0 (The Semantic & Intelligent Web)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Masa depan web yang berfokus pada AI dan desentralisasi. Menuntut performa tinggi, aksesibilitas, dan struktur kode semantik.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1.2 Posisi HTML5, Tailwind CSS, dan JavaScript -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-layer-group"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">1.2 Posisi Teknologi dalam Ekosistem Web</h2>
+                    </div>
+                    
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Frontend Development adalah praktik memproduksi HTML, CSS, dan JavaScript agar pengguna dapat melihat dan berinteraksi dengan website secara langsung.
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a; font-size: 1.1rem;">1.2.1 HTML</strong>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">
+                                (HyperText Markup Language): Struktur dasar konten.
+                            </p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a; font-size: 1.1rem;">1.2.2 CSS</strong>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">
+                                (Cascading Style Sheets): Gaya visual, tata letak, dan responsivitas.
+                            </p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a; font-size: 1.1rem;">1.2.3 JavaScript</strong>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">
+                                Interaktivitas dan logika pemrograman (client-side).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1.3 Alat Pengembangan -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-tools"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">1.3 Alat Pengembangan</h2>
+                    </div>
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Pemilihan tools yang tepat sangat krusial untuk efisiensi dan produktivitas.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <!-- 1.3.1 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">1.3.1 Visual Studio Code (Code Editor)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Standar industri editor kode. Ekstensi wajib: Live Server, Tailwind CSS IntelliSense, Prettier.
+                            </p>
+                        </div>
+                        <!-- 1.3.2 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">1.3.2 Browser & DevTools</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Google Chrome/Firefox Developer Edition untuk debugging layout (Element Inspector), logika JS (Console), dan performa (Lighthouse).
+                            </p>
+                        </div>
+                        <!-- 1.3.3 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">1.3.3 Node.js dan NPM</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Node.js untuk runtime JS di luar browser. NPM untuk mengelola paket/library seperti Tailwind CSS.
+                            </p>
+                        </div>
+                        <!-- 1.3.4 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">1.3.4 Git (Version Control)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Melacak perubahan kode, manajemen riwayat, dan kolaborasi tim.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1.4 Workflow Modern -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-project-diagram"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">1.4 Workflow Modern (Metode Waterfall)</h2>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a;">1.4.1 Analisis</strong>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">Identifikasi fitur dan kebutuhan halaman.</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a;">1.4.2 Perancangan</strong>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">Desain UI dan struktur sistem.</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a;">1.4.3 Implementasi</strong>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">Penulisan kode (Coding) HTML, CSS, JS.</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a;">1.4.4 Pengujian</strong>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 5px;">Memastikan fitur berjalan sesuai spesifikasi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Area -->
+                <div class="bento-card action-area" style="background: linear-gradient(135deg, #f0fdf4, #ffffff); border: 2px dashed #bbf7d0; text-align: center; padding: 40px;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #16a34a; margin-bottom: 15px;"></i>
+                    <h3 style="color: #1e293b; margin-bottom: 10px;">Selesai Membaca?</h3>
+                    <p style="color: #64748b; margin-bottom: 20px;">Tandai materi ini sebagai selesai untuk mendapatkan <strong>+50 XP</strong>.</p>
+                    <button id="mark-complete" data-bab="bab1" class="btn btn-primary">
+                        Tandai Selesai
+                    </button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!--
+Nama file       : contact.html
+Deskripsi       : Halaman Kontak dengan tema Premium Emerald - Form & Video Player.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - CodeDock</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <!-- LOGO IMAGE -->
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/150x40/ffffff/064e3b?text=CodeDock" alt="CodeDock Logo" style="height: 40px; object-fit: contain;">
+            </a>
+
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#">Kurikulum <i class="fas fa-chevron-down dropdown-chevron"></i></a>
+                    <div class="dropdown-content">
+                        <a href="materi/bab1.html">Bab 1: HTML Dasar</a>
+                        <a href="materi/bab2.html">Bab 2: CSS Layout</a>
+                        <a href="materi/bab3.html">Bab 3: JS Dasar</a>
+                        <a href="materi/bab4.html">Bab 4: DOM</a>
+                        <a href="materi/bab5.html">Bab 5: Event</a>
+                        <a href="materi/bab6.html">Bab 6: API</a>
+                        <a href="materi/bab7.html">Bab 7: Final Project</a>
+                    </div>
+                </li>
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="contact.html" class="active">Kontak</a></li>
+                <li><a href="login.html" class="btn btn-primary" id="auth-btn">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 180px;">
+        
+        <div style="text-align: center; margin-bottom: 60px;" data-animate>
+            <div class="badge-pill">Get in Touch</div>
+            <h1 style="font-size: 3rem; margin-bottom: 20px;">Hubungi Kami</h1>
+            <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">
+                Punya pertanyaan atau ingin berdiskusi? Tim kami siap membantu Anda.
+            </p>
+        </div>
+
+        <div class="bento-grid">
+            
+            <!-- Form Card -->
+            <div class="bento-card col-6" data-animate>
+                <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;">
+                    <div class="card-icon" style="margin: 0;"><i class="fas fa-envelope"></i></div>
+                    <h2 class="card-title" style="margin: 0;">Kirim Pesan</h2>
+                </div>
+                
+                <form>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 700; font-size: 0.9rem; color: var(--text-main);">Nama Lengkap</label>
+                        <input type="text" placeholder="Masukkan nama Anda" required 
+                               style="width: 100%; padding: 15px 20px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-soft); font-family: inherit; font-weight: 500; outline: none; transition: 0.3s;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 700; font-size: 0.9rem; color: var(--text-main);">Email Akademik</label>
+                        <input type="email" placeholder="email@contoh.com" required 
+                               style="width: 100%; padding: 15px 20px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-soft); font-family: inherit; font-weight: 500; outline: none; transition: 0.3s;">
+                    </div>
+                    <div style="margin-bottom: 25px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 700; font-size: 0.9rem; color: var(--text-main);">Pesan</label>
+                        <textarea placeholder="Tulis pesan Anda di sini..." rows="4" required 
+                                  style="width: 100%; padding: 15px 20px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-soft); resize: none; font-family: inherit; font-weight: 500; outline: none; transition: 0.3s;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        Kirim Pesan <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Video & Info Card -->
+            <div class="bento-card col-6" style="padding: 0; display: flex; flex-direction: column;" data-animate>
+                
+                <!-- Video Section -->
+                <div style="padding: 40px; flex: 1;">
+                    <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;">
+                        <div class="card-icon" style="margin: 0; color: var(--secondary); background: #e0f2fe;"><i class="fas fa-video"></i></div>
+                        <h2 class="card-title" style="margin: 0;">Profil Tim</h2>
+                    </div>
+                    
+                    <!-- VIDEO PLAYER -->
+                    <div style="width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow-premium);">
+                        <video width="100%" height="auto" controls poster="https://via.placeholder.com/600x350/f1f5f9/064e3b?text=Video+Profil+Tim" style="display: block;">
+                            <source src="video/CINEMATIC VIDEO PASAR SURYA KENCANA _ Canon EOS R6 4K (1).mp4" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+
+                    <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem; text-align: center;">
+                        Kenali anggota kelompok kami dan peran masing-masing dalam proyek ini.
+                    </p>
+                </div>
+
+                <!-- Location Section -->
+                <div style="background: var(--bg-soft); padding: 40px; border-top: 1px solid var(--border-color);">
+                    <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 15px; color: var(--secondary);">Lokasi Kampus</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 25px; line-height: 1.6;">
+                        <strong>Universitas Pamulang (Kampus Viktor)</strong><br>
+                        Jl. Raya Puspitek No. 46, Buaran,<br>
+                        Kota Tangerang Selatan, Banten.
+                    </p>
+                    <div style="display: flex; gap: 12px;">
+                        <a href="#" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">Petunjuk Arah</a>
+                        <a href="#" class="btn btn-outline" style="padding: 10px 20px; font-size: 0.8rem;">Website Unpam</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Map Card Full Width -->
+            <div class="bento-card col-12" style="padding: 0; height: 350px;" data-animate>
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d763.3889869369161!2d106.69189612660564!3d-6.346551139764031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e26dc3cd%3A0xccd6344b8021119d!2sUniversitas%20Pamulang%20Kampus%202%20(UNPAM%20Viktor)!5e0!3m2!1sid!2sid!4v1765770402647!5m2!1sid!2sid%22" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <!-- LOGO IMAGE FOOTER -->
+            <a href="index.html" style="display: inline-block; margin-bottom: 25px;">
+                <img src="https://via.placeholder.com/150x40/ffffff/064e3b?text=CodeDock" alt="CodeDock Logo" style="height: 35px; opacity: 0.8;">
+            </a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 CodeDock by Kelompok 3. Crafted for Global Excellence.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

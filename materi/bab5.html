@@ -1,0 +1,497 @@
+<!--
+Nama file       : materi/bab5.html
+Tanggal ngoding : Rabu, 7 Januari 2026
+Kelas           : 05TPLP017
+Kelompok        : Kelompok 3
+Anggota         : Al Amin Abdilah, Alif Ananda, Yuda Prima
+Deskripsi       : Halaman Materi Bab 5 - Integrasi Komponen (Navbar, Slider, Modal, Fetch API) Lengkap Sesuai Makalah.
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 5: Integrasi Komponen - CodeDock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Table untuk Alat Pengembangan */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .tool-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/CodeDc.png" alt="CodeDock Logo" style="height: 60px; object-fit: contain;">
+            </a>
+            
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="bab1.html">Bab 1: Pendahuluan</a>
+                        <a href="bab2.html">Bab 2: Fondasi HTML5</a>
+                        <a href="bab3.html">Bab 3: CSS & Tailwind</a>
+                        <a href="bab4.html">Bab 4: JavaScript</a>
+                        <a href="bab5.html">Bab 5: Integrasi</a>
+                        <a href="bab6.html">Bab 6: Best Practices</a>
+                        <a href="bab7.html">Bab 7: UI/UX & Optimasi</a>
+                    </div>
+                </li>
+                <li><a href="../about.html">Tentang</a></li>
+                <li><a href="../contact.html">Kontak</a></li>
+                <li><a href="../login.html" class="btn btn-primary" id="auth-btn">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 80px; padding-top: 40px;">
+        
+        <!-- HEADER BAB -->
+        <div class="chapter-header" style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);">
+            <div>
+                <span class="badge-pill" style="margin-bottom: 10px; display: inline-block;">Bab 5</span>
+                <h1 style="color: #1e293b; margin-bottom: 10px;">Integrasi HTML5, Tailwind CSS, dan JavaScript</h1>
+                <p style="color: #64748b;">Membangun komponen interaktif modern tanpa pustaka pihak ketiga.</p>
+            </div>
+            <div style="text-align: right;">
+                <span style="display: block; font-size: 0.9rem; color: #64748b;">Estimasi</span>
+                <strong style="color: #16a34a; font-size: 1.2rem;">90 Menit</strong>
+            </div>
+        </div>
+
+        <div class="materi-layout" style="padding: 0; display: flex; flex-direction: column; gap: 30px;">
+            
+             <!-- NAVIGASI MATERI (ATAS) -->
+            <div class="bento-card" style="padding: 25px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-list-ul" style="color: var(--primary);"></i> Navigasi Materi
+                </h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="bab1.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 1</a>
+                    <a href="bab2.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 2</a>
+                    <a href="bab3.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 3</a>
+                    <a href="bab4.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 4</a>
+                    <a href="bab5.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f0fdf4; border: 1px solid #16a34a; border-radius: 8px; color: #16a34a; font-weight: 700; font-size: 0.9rem; white-space: nowrap;">Bab 5</a>
+                    <a href="bab6.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 6</a>
+                    <a href="bab7.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 7</a>
+                </div>
+            </div>
+
+            <!-- KONTEN UTAMA -->
+            <main style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- 5.1 Pendahuluan Integrasi -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-puzzle-piece"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">5.1 Pendahuluan Integrasi Komponen</h2>
+                    </div>
+                    <p class="card-desc">
+                        Dalam pengembangan antarmuka web modern, penggunaan <strong>Utility-First CSS</strong> seperti Tailwind CSS yang dipadukan dengan logika JavaScript (ES6+) memungkinkan pengembang untuk membangun komponen yang interaktif tanpa bergantung pada pustaka pihak ketiga yang berat (seperti jQuery).
+                    </p>
+                    <blockquote style="margin-top: 20px; padding: 15px; background: #fff7ed; border-left: 4px solid #f97316; font-style: italic; color: #9a3412; font-size: 0.95rem; border-radius: 4px;">
+                        "Pendekatan yang digunakan dalam bab ini selaras dengan temuan dalam penelitian yang membandingkan framework CSS, di mana Tailwind CSS terbukti memberikan fleksibilitas desain yang lebih tinggi dan kode yang lebih ringkas dibandingkan pendekatan tradisional." (Putra, Lestari, & Kristianti, 2025).
+                    </blockquote>
+                </div>
+
+                <!-- 5.2 Navigasi Responsif -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-bars"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">5.2 Membuat Navigasi Responsif (Responsive Navbar)</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Navigasi adalah elemen krusial dalam User Experience (UX). Berdasarkan prinsip <strong>Mobile-First</strong>, navigasi harus dapat beradaptasi dari layar desktop yang lebar menjadi menu "hamburger" yang ringkas pada perangkat seluler.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 5.2.1 Konsep Dasar -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.2.1 Konsep Dasar</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Navbar responsif bekerja dengan memanipulasi properti display CSS.</p>
+                            
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9rem;">
+                                <li style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                    <strong style="color: #16a34a; display: block; margin-bottom: 5px;">a. Layar Besar (md:flex)</strong>
+                                    Menu ditampilkan secara horizontal.
+                                </li>
+                                <li style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                    <strong style="color: #16a34a; display: block; margin-bottom: 5px;">b. Layar Kecil (hidden)</strong>
+                                    Menu disembunyikan secara default dan digantikan tombol toggle.
+                                </li>
+                                <li style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; grid-column: span 2;">
+                                    <strong style="color: #16a34a; display: block; margin-bottom: 5px;">c. Interaksi JS</strong>
+                                    Event listener mendeteksi klik pada tombol toggle untuk menambah/menghapus kelas <code>hidden</code>.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 5.2.2 Implementasi Kode -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.2.2 Implementasi Kode</h3>
+                            <div class="code-window" style="margin: 0;">
+&lt;!-- HTML Structure --&gt;
+&lt;nav class="bg-white shadow-lg fixed w-full z-50 top-0"&gt;
+  &lt;div class="max-w-6xl mx-auto px-4"&gt;
+    &lt;div class="flex justify-between"&gt;
+      &lt;!-- Logo --&gt;
+      &lt;div&gt;
+        &lt;a href="#" class="flex items-center py-4 px-2"&gt;
+          &lt;span class="font-semibold text-gray-500 text-lg"&gt;Kelompok3_Web&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+      &lt;!-- Menu Desktop --&gt;
+      &lt;div class="hidden md:flex items-center space-x-1"&gt;
+        &lt;a href="#" class="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold"&gt;Beranda&lt;/a&gt;
+        &lt;a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"&gt;Layanan&lt;/a&gt;
+        &lt;a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"&gt;Tentang&lt;/a&gt;
+        &lt;a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300"&gt;Kontak&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;!-- Tombol Hamburger --&gt;
+      &lt;div class="md:hidden flex items-center"&gt;
+        &lt;button class="mobile-menu-button outline-none"&gt;
+          &lt;svg class="w-6 h-6 text-gray-500 hover:text-green-500" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"&gt;
+            &lt;path d="M4 6h16M4 12h16M4 18h16"&gt;&lt;/path&gt;
+          &lt;/svg&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Menu Mobile --&gt;
+  &lt;div class="hidden mobile-menu md:hidden"&gt;
+    &lt;ul&gt;
+      &lt;li class="active"&gt;&lt;a href="#" class="block text-sm px-2 py-4 text-white bg-green-500 font-semibold"&gt;Beranda&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#" class="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300"&gt;Layanan&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+                            </div>
+                        </div>
+
+                        <!-- 5.2.3 Analisis Kode -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.2.3 Analisis Kode</h3>
+                            <p style="font-size: 0.9rem; color: #64748b;">
+                                Pada kode di atas, kelas <code>md:hidden</code> pada div menu mobile memastikan elemen tersebut tidak muncul di layar desktop. Sebaliknya, tombol hamburger hanya muncul pada layar kecil (<code>md:hidden</code> pada parent tombol).
+                            </p>
+                            <div class="code-window" style="margin-top: 10px;">
+// Logika JavaScript
+const btn = document.querySelector("button.mobile-menu-button");
+const menu = document.querySelector(".mobile-menu");
+
+btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+});
+                            </div>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-top: 10px;">
+                                JavaScript bertugas sederhana melakukan <em>toggling</em> kelas <code>hidden</code>, yang merupakan praktik efisien tanpa membebani rendering browser.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Full Source Code is in the blocks above
+                    </div>
+                </div>
+
+                <!-- 5.3 Slider Gambar -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-images"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">5.3 Membuat Slider Gambar (Carousel)</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Slider gambar atau carousel sering digunakan untuk menampilkan hero section atau galeri produk. Meskipun banyak library tersedia (seperti SwiperJS), membuatnya dari nol (Vanilla JS) memberikan performa yang lebih baik.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 5.3.1 Algoritma -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.3.1 Algoritma Slider</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Logika dasar slider adalah manipulasi indeks array:</p>
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr; gap: 8px; font-size: 0.9rem; color: #64748b;">
+                                <li style="display:flex; align-items:center; gap:8px;"><span style="background:#dcfce7; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; color:#166534; font-weight:bold; font-size:0.7rem;">a</span> Simpan daftar gambar atau elemen slide.</li>
+                                <li style="display:flex; align-items:center; gap:8px;"><span style="background:#dcfce7; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; color:#166534; font-weight:bold; font-size:0.7rem;">b</span> Tentukan variabel <code>currentIndex</code> (mulai dari 0).</li>
+                                <li style="display:flex; align-items:center; gap:8px;"><span style="background:#dcfce7; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; color:#166534; font-weight:bold; font-size:0.7rem;">c</span> Tombol "Next" menambah <code>currentIndex</code> (loop ke 0 jika akhir).</li>
+                                <li style="display:flex; align-items:center; gap:8px;"><span style="background:#dcfce7; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; color:#166534; font-weight:bold; font-size:0.7rem;">d</span> Tombol "Prev" mengurangi <code>currentIndex</code>.</li>
+                                <li style="display:flex; align-items:center; gap:8px;"><span style="background:#dcfce7; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; color:#166534; font-weight:bold; font-size:0.7rem;">e</span> Update tampilan UI berdasarkan indeks aktif.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 5.3.2 Implementasi -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.3.2 Implementasi Kode</h3>
+                            
+                            <strong style="display:block; margin-top:10px; font-size:0.9rem; color:#1e293b;">HTML Structure:</strong>
+                            <div class="code-window" style="margin: 0;">
+&lt;div class="relative w-full max-w-4xl mx-auto mt-10"&gt;
+  &lt;!-- Container Slide --&gt;
+  &lt;div class="overflow-hidden relative h-64 rounded-lg shadow-lg"&gt;
+    &lt;div class="slide absolute inset-0 transition-opacity duration-700 opacity-100"&gt;
+      &lt;img src="img1.jpg" class="w-full h-full object-cover"&gt;
+    &lt;/div&gt;
+    &lt;div class="slide absolute inset-0 transition-opacity duration-700 opacity-0"&gt;
+      &lt;img src="img2.jpg" class="w-full h-full object-cover"&gt;
+    &lt;/div&gt;
+    &lt;div class="slide absolute inset-0 transition-opacity duration-700 opacity-0"&gt;
+      &lt;img src="img3.jpg" class="w-full h-full object-cover"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Navigasi --&gt;
+  &lt;button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-r"&gt;&#10094;&lt;/button&gt;
+  &lt;button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-l"&gt;&#10095;&lt;/button&gt;
+&lt;/div&gt;
+                            </div>
+
+                            <strong style="display:block; margin-top:20px; font-size:0.9rem; color:#1e293b;">JavaScript Logic:</strong>
+                            <div class="code-window" style="margin: 0;">
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+let currentSlide = 0;
+
+function showSlide(index) {
+  // Reset semua slide opacity 0
+  slides.forEach((slide) => {
+    slide.classList.remove('opacity-100');
+    slide.classList.add('opacity-0');
+  });
+  // Slide aktif opacity 100
+  slides[index].classList.remove('opacity-0');
+  slides[index].classList.add('opacity-100');
+}
+
+nextBtn.addEventListener('click', () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+});
+
+prevBtn.addEventListener('click', () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+});
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Full Source Code Available in blocks above
+                    </div>
+                </div>
+
+                <!-- 5.4 Modal (NEW) -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-window-maximize"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">5.4 Membuat Modal/Popup Interaktif</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Modal adalah elemen UI yang muncul di atas konten utama (overlay), memaksa pengguna untuk berinteraksi dengannya sebelum kembali ke konten utama. Ini sering digunakan untuk formulir login, konfirmasi, atau notifikasi.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 5.4.1 Teknik Overlay CSS -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.4.1 Teknik Overlay CSS</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Kunci pembuatan modal dengan Tailwind adalah penggunaan utilitas posisi:</p>
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem; color: #64748b;">
+                                <li style="display:flex; align-items:center; gap:8px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> <strong>fixed:</strong> Agar modal tetap di layar meski di-scroll.</li>
+                                <li style="display:flex; align-items:center; gap:8px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> <strong>inset-0:</strong> Agar memenuhi seluruh layar (top, right, bottom, left = 0).</li>
+                                <li style="display:flex; align-items:center; gap:8px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> <strong>z-50:</strong> Agar modal berada di lapisan paling atas.</li>
+                                <li style="display:flex; align-items:center; gap:8px;"><i class="fas fa-check-circle" style="color:#16a34a;"></i> <strong>bg-black bg-opacity-50:</strong> Membuat efek redup transparan di belakang modal.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 5.4.2 Implementasi Kode -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.4.2 Implementasi Kode</h3>
+                            
+                            <strong style="display:block; margin-top:10px; font-size:0.9rem; color:#1e293b;">HTML & Tailwind:</strong>
+                            <div class="code-window" style="margin: 0;">
+&lt;!-- Tombol Pemicu --&gt;
+&lt;button id="openModal" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"&gt;
+    Buka Modal
+&lt;/button&gt;
+
+&lt;!-- Struktur Modal (Hidden by default) --&gt;
+&lt;div id="modalOverlay" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden overflow-y-auto h-full w-full z-50"&gt;
+    &lt;div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white"&gt;
+        &lt;div class="mt-3 text-center"&gt;
+            &lt;h3 class="text-lg leading-6 font-medium text-gray-900"&gt;Konfirmasi&lt;/h3&gt;
+            &lt;div class="mt-2 px-7 py-3"&gt;
+                &lt;p class="text-sm text-gray-500"&gt;
+                    Apakah Anda yakin ingin menyimpan data ini ke database?
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="items-center px-4 py-3"&gt;
+                &lt;button id="closeModal" class="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"&gt;
+                    Tutup
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+
+                            <strong style="display:block; margin-top:20px; font-size:0.9rem; color:#1e293b;">JavaScript Logic:</strong>
+                            <div class="code-window" style="margin: 0;">
+const modal = document.getElementById('modalOverlay');
+const openBtn = document.getElementById('openModal');
+const closeBtn = document.getElementById('closeModal');
+
+// Buka Modal
+openBtn.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+});
+
+// Tutup Modal via Tombol
+closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+});
+
+// Tutup Modal jika klik di luar area konten (overlay gelap)
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.add('hidden');
+    }
+});
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Full Source Code Available in blocks above
+                    </div>
+                </div>
+
+                <!-- 5.5 Integrasi Fetch API Data Dinamis (NEW) -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-database"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">5.5 Integrasi Fetch API untuk Data Dinamis</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Salah satu kompetensi utama web developer modern adalah kemampuan mengonsumsi Application Programming Interface (API). Javascript modern menyediakan metode <code>fetch()</code> yang berbasis Promise, menggantikan cara lama menggunakan XMLHTTPRequest (AJAX).
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 5.5.1 Studi Kasus -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.5.1 Studi Kasus Data Eksternal</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Mengambil data pengguna palsu dari <strong>jsonplaceholder.typicode.com</strong> dan menampilkannya dalam bentuk kartu (card) yang responsif.</p>
+                        </div>
+
+                        <!-- 5.5.2 Implementasi Kode -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">5.5.2 Implementasi Kode (Asynchronous)</h3>
+                            
+                            <strong style="display:block; margin-top:10px; font-size:0.9rem; color:#1e293b;">JavaScript Fetch Logic:</strong>
+                            <div class="code-window" style="margin: 0;">
+const apiURL = 'https://jsonplaceholder.typicode.com/users';
+const container = document.getElementById('user-container');
+
+async function getUsers() {
+    try {
+        // 1. Fetch data dari URL
+        let response = await fetch(apiURL);
+        
+        // 2. Konversi respon ke JSON
+        let data = await response.json();
+        
+        // 3. Render data ke HTML
+        renderUsers(data);
+    } catch (error) {
+        console.log('Error fetching data:', error);
+        container.innerHTML = '<p class="text-red-500 text-center">Gagal memuat data.</p>';
+    }
+}
+
+function renderUsers(users) {
+    let html = '';
+    users.forEach(user => {
+        // Menggunakan Template Literals untuk menyisipkan variabel
+        html += `
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+            <h2 class="text-xl font-bold mb-2 text-gray-800">${user.name}</h2>
+            <p class="text-gray-600 mb-2">📧 ${user.email}</p>
+            <p class="text-gray-500 text-sm">🏢 ${user.company.name}</p>
+            <a href="http://${user.website}" class="text-blue-500 hover:underline mt-4 block text-sm">Kunjungi Website &rarr;</a>
+        </div>
+        `;
+    });
+    
+    // Inject ke DOM
+    container.innerHTML = html;
+}
+
+// Panggil fungsi saat halaman dimuat
+document.addEventListener('DOMContentLoaded', getUsers);
+                            </div>
+
+                            <strong style="display:block; margin-top:20px; font-size:0.9rem; color:#1e293b;">HTML Structure for Container:</strong>
+                            <div class="code-window" style="margin: 0;">
+&lt;div class="container mx-auto px-4 py-8"&gt;
+    &lt;h1 class="text-3xl font-bold text-center mb-8"&gt;Daftar Pengguna (Fetch API)&lt;/h1&gt;
+    &lt;!-- Grid Layout Responsif --&gt;
+    &lt;div id="user-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;
+        &lt;!-- Data akan di-inject di sini oleh JS --&gt;
+        &lt;div class="text-center col-span-full"&gt;Loading...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Full Source Code Available in blocks above
+                    </div>
+                </div>
+
+                <div class="bento-card action-area" style="text-align: center; border: 2px dashed #bbf7d0; background: #f0fdf4;">
+                    <h3 style="color: #16a34a;">Komponen Siap?</h3>
+                    <button id="mark-complete" data-bab="bab5" class="btn btn-primary">Tandai Selesai</button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>

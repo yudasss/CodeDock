@@ -1,0 +1,267 @@
+<!--
+Nama file       : materi/bab7.html
+Tanggal ngoding : Rabu, 7 Januari 2026
+Kelas           : 05TPLP017
+Kelompok        : Kelompok 3
+Anggota         : Al Amin Abdilah, Alif Ananda, Yuda Prima
+Deskripsi       : Halaman Materi Bab 7 - Analisis UI/UX, Debugging, dan Optimasi Performa (Konten Lengkap).
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 7: UI/UX, Debugging & Optimasi - CodeDock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Table untuk Alat Pengembangan */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .tool-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/CodeDc.png" alt="CodeDock Logo" style="height: 60px; object-fit: contain;">
+            </a>
+            
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="bab1.html">Bab 1</a>
+                        <a href="bab2.html">Bab 2</a>
+                        <a href="bab3.html">Bab 3</a>
+                        <a href="bab4.html">Bab 4</a>
+                        <a href="bab5.html">Bab 5</a>
+                        <a href="bab6.html">Bab 6</a>
+                        <a href="bab7.html">Bab 7</a>
+                    </div>
+                </li>
+                <li><a href="../about.html">Tentang</a></li>
+                <li><a href="../contact.html">Kontak</a></li>
+                <li><a href="../login.html" class="btn btn-primary" id="auth-btn">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 80px; padding-top: 40px;">
+        
+        <div class="chapter-header" style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-sm);">
+            <div>
+                <span class="badge-pill" style="margin-bottom: 10px; display: inline-block;">Bab 7</span>
+                <h1 style="color: #1e293b; margin-bottom: 10px;">UI/UX, Debugging & Optimasi</h1>
+                <p style="color: #64748b;">Menganalisis metodologi desain, teknik perbaikan kode, dan performa web vital.</p>
+            </div>
+            <div style="text-align: right;">
+                <span style="display: block; font-size: 0.9rem; color: #64748b;">Estimasi</span>
+                <strong style="color: #16a34a; font-size: 1.2rem;">90 Menit</strong>
+            </div>
+        </div>
+
+        <div class="materi-layout" style="padding: 0; display: flex; flex-direction: column; gap: 30px;">
+            
+            <!-- NAVIGASI MATERI (ATAS) -->
+            <div class="bento-card" style="padding: 25px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-list-ul" style="color: var(--primary);"></i> Navigasi Materi
+                </h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="bab1.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 1</a>
+                    <a href="bab2.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 2</a>
+                    <a href="bab3.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 3</a>
+                    <a href="bab4.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 4</a>
+                    <a href="bab5.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 5</a>
+                    <a href="bab6.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 6</a>
+                    <a href="bab7.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f0fdf4; border: 1px solid #16a34a; border-radius: 8px; color: #16a34a; font-weight: 700;">Bab 7: Final</a>
+                </div>
+            </div>
+
+            <!-- KONTEN -->
+            <main style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- 7.1 Metodologi Desain -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-pencil-ruler"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">7.1 Implementasi Metodologi Desain Frontend</h2>
+                    </div>
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Penulisan kode tidak dapat dipisahkan dari prinsip UI/UX. Berdasarkan proyek <em>SonicPulse</em> dan <em>NeonVerse</em>, kita menerapkan metodologi terstruktur untuk konsistensi visual.
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">7.1.1 Atomic Design dalam Tailwind</h3>
+                            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">Mengadopsi prinsip Brad Frost untuk mengelola komponen:</p>
+                            <ul style="font-size: 0.8rem; color: #1e293b; line-height: 1.6;">
+                                <li><strong>Atoms:</strong> Kelas utilitas (<code>bg-blue-500</code>, <code>p-4</code>).</li>
+                                <li><strong>Molecules:</strong> Tombol pencarian (Input + Ikon).</li>
+                                <li><strong>Organisms:</strong> Navbar responsif (Logo + Nav + Toggle).</li>
+                                <li><strong>Templates/Pages:</strong> Landing Page utuh (SonicPulse).</li>
+                            </ul>
+                        </div>
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">7.1.2 Psikologi Visual</h3>
+                            <p style="font-size: 0.85rem; color: #64748b;">Analisis pada proyek <em>SonicPulse</em>:</p>
+                            <ul style="font-size: 0.8rem; color: #1e293b; line-height: 1.6; margin-top: 5px;">
+                                <li><strong>Warna Gelap (Slate-900):</strong> Kesan premium, elegan, dan fokus (immersive).</li>
+                                <li><strong>Warna Indigo:</strong> Kreativitas dan kemewahan modern untuk elemen CTA.</li>
+                                <li><strong>Tipografi (Inter/Poppins):</strong> Sans-Serif geometris untuk <em>readability</em> tinggi di layar digital.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7.2 Debugging -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-bug"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">7.2 Teknik Debugging dan Inspeksi Kode</h2>
+                    </div>
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Browser modern menyediakan <strong>Chrome Developer Tools (DevTools)</strong> sebagai alat pencarian dan perbaikan kesalahan utama.
+                    </p>
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">7.2.1 Elements Panel untuk Layouting</h3>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                            <div class="vital-card" style="text-align: center;">
+                                <i class="fas fa-code-branch" style="color: #16a34a; margin-bottom: 8px;"></i>
+                                <h4 style="font-size: 0.85rem;">Inspeksi DOM</h4>
+                                <p style="font-size: 0.75rem; color: #64748b;">Melihat struktur HTML yang dirender.</p>
+                            </div>
+                            <div class="vital-card" style="text-align: center;">
+                                <i class="fas fa-sliders-h" style="color: #16a34a; margin-bottom: 8px;"></i>
+                                <h4 style="font-size: 0.85rem;">Manipulasi Real-time</h4>
+                                <p style="font-size: 0.75rem; color: #64748b;">Mengubah nilai CSS tanpa refresh.</p>
+                            </div>
+                            <div class="vital-card" style="text-align: center;">
+                                <i class="fas fa-vector-square" style="color: #16a34a; margin-bottom: 8px;"></i>
+                                <h4 style="font-size: 0.85rem;">Visualisasi Box Model</h4>
+                                <p style="font-size: 0.75rem; color: #64748b;">Melihat margin, padding, & border.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7.3 Core Web Vitals -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-tachometer-alt"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">7.3 Analisis Core Web Vitals</h2>
+                    </div>
+                    <p class="card-desc" style="margin-bottom: 20px;">Menganalisis tiga metrik vital dari Google untuk performa website optimal.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="background: #f0fdf4; padding: 15px; border-radius: 12px; border: 1px solid #bbf7d0;">
+                            <strong style="color: #166534;">LCP (Largest Contentful Paint)</strong>
+                            <p style="font-size: 0.85rem; color: #14532d; margin-top: 5px;">Mengukur kecepatan loading elemen terbesar (Hero Image). Solusi: Gunakan format modern seperti <strong>WebP</strong> (lebih kecil 30-50%).</p>
+                        </div>
+                        <div style="background: #ecfeff; padding: 15px; border-radius: 12px; border: 1px solid #a5f3fc;">
+                            <strong style="color: #155e75;">CLS (Cumulative Layout Shift)</strong>
+                            <p style="font-size: 0.85rem; color: #164e63; margin-top: 5px;">Mengukur stabilitas visual. Pergeseran dicegah dengan selalu menyertakan atribut <code>width</code> dan <code>height</code> pada gambar.</p>
+                        </div>
+                        <div style="background: #fdf4ff; padding: 15px; border-radius: 12px; border: 1px solid #f5d0fe;">
+                            <strong style="color: #86198f;">FID (First Input Delay)</strong>
+                            <p style="font-size: 0.85rem; color: #701a75; margin-top: 5px;">Mengukur responsivitas. Penggunaan <strong>Vanilla JS</strong> memberikan FID yang unggul karena meminimalkan proses pustaka berat.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7.4 Vanilla JS vs Framework -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-balance-scale"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">7.4 Vanilla JS vs Framework Modern</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-project-diagram"></i> Lihat Alur</button>
+                    </div>
+                    <p class="card-desc" style="margin-bottom: 20px;">Meskipun framework populer, memahami fundamental Vanilla JS tetap krusial untuk kontrol penuh aplikasi.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">7.4.1 Kelebihan Pendekatan Vanilla JS</h3>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #64748b; line-height: 1.8;">
+                                <li><i class="fas fa-check-circle" style="color: #16a34a;"></i> <strong>Performa Tinggi:</strong> Tanpa overhead kode pustaka eksternal.</li>
+                                <li><i class="fas fa-check-circle" style="color: #16a34a;"></i> <strong>Pemahaman Fundamental:</strong> Memahami cara kerja DOM secara langsung.</li>
+                                <li><i class="fas fa-check-circle" style="color: #16a34a;"></i> <strong>Tanpa Build Tools:</strong> Cukup file <code>.html</code> dan <code>.js</code> untuk dijalankan.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; text-align: center; padding: 40px;">
+                        <!--  -->
+                        <div style="color: white; font-family: sans-serif;">
+                            <i class="fas fa-project-diagram" style="font-size: 4rem; color: var(--primary); margin-bottom: 20px;"></i>
+                            <h4 style="margin-bottom: 10px;">Diagram Alur Logika Tambah Postingan</h4>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Input User &rarr; Validasi ES6 &rarr; DOM Injection &rarr; Local Storage Sync</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7.5 Kesimpulan -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-clipboard-check"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">7.5 Kesimpulan Analisis Teknis</h2>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div style="background: #f0fdf4; padding: 15px; border-radius: 12px; border: 1px solid #bbf7d0;">
+                            <strong style="color: #166534; font-size: 0.9rem;">1. HTML5 Semantik</strong>
+                            <p style="font-size: 0.8rem; color: #14532d;">Fondasi utama bagi aksesibilitas dan SEO mesin pencari.</p>
+                        </div>
+                        <div style="background: #f0fdf4; padding: 15px; border-radius: 12px; border: 1px solid #bbf7d0;">
+                            <strong style="color: #166534; font-size: 0.9rem;">2. Tailwind CSS</strong>
+                            <p style="font-size: 0.8rem; color: #14532d;">Keseimbangan antara kecepatan pembangunan dan fleksibilitas kustomisasi.</p>
+                        </div>
+                        <div style="background: #f0fdf4; padding: 15px; border-radius: 12px; border: 1px solid #bbf7d0;">
+                            <strong style="color: #166534; font-size: 0.9rem;">3. JS ES6+</strong>
+                            <p style="font-size: 0.8rem; color: #14532d;">Bahasa yang kuat dan bersih tanpa ketergantungan library pihak ketiga.</p>
+                        </div>
+                        <div style="background: #f0fdf4; padding: 15px; border-radius: 12px; border: 1px solid #bbf7d0;">
+                            <strong style="color: #166534; font-size: 0.9rem;">4. Debugging & Optimasi</strong>
+                            <p style="font-size: 0.8rem; color: #14532d;">Kompetensi wajib yang membedakan coder biasa dengan engineer profesional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Area -->
+                <div class="bento-card action-area" style="background: linear-gradient(135deg, #f0fdf4, #ffffff); border: 2px dashed #bbf7d0; text-align: center; padding: 40px;">
+                    <i class="fas fa-graduation-cap" style="font-size: 3rem; color: #16a34a; margin-bottom: 15px;"></i>
+                    <h3 style="color: #1e293b; margin-bottom: 10px;">Selamat! Anda Telah Menyelesaikan Kursus</h3>
+                    <p style="color: #64748b; margin-bottom: 20px;">Dapatkan poin XP terakhir Anda dan selesaikan modul ini.</p>
+                    <button id="mark-complete" data-bab="bab7" class="btn btn-primary">
+                        Selesaikan Proyek Akhir
+                    </button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

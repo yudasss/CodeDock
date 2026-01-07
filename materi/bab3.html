@@ -1,0 +1,648 @@
+<!--
+Nama file       : materi/bab3.html
+Tanggal ngoding : Rabu, 7 Januari 2026
+Kelas           : 05TPLP017
+Kelompok        : Kelompok 3
+Anggota         : Al Amin Abdilah, Alif Ananda, Yuda Prima
+Deskripsi       : Halaman Materi Bab 3 - Styling Modern dengan Tailwind CSS Lengkap (Utility-First, Instalasi, Layout, Typography, Responsive, Components, Kustomisasi, Studi Kasus).
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 3: Styling Modern dengan Tailwind CSS - CodeDock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Table untuk Alat Pengembangan */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .tool-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/CodeDc.png" alt="CodeDock Logo" style="height: 60px; object-fit: contain;">
+            </a>
+            
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="bab1.html">Bab 1: Pendahuluan</a>
+                        <a href="bab2.html">Bab 2: Fondasi HTML5</a>
+                        <a href="bab3.html">Bab 3: CSS & Tailwind</a>
+                        <a href="bab4.html">Bab 4: JavaScript</a>
+                        <a href="bab5.html">Bab 5: Integrasi</a>
+                        <a href="bab6.html">Bab 6: Best Practices</a>
+                        <a href="bab7.html">Bab 7: UI/UX & Optimasi</a>
+                    </div>
+                </li>
+                <li><a href="../about.html">Tentang</a></li>
+                <li><a href="../contact.html">Kontak</a></li>
+                <li><a href="../login.html" class="btn btn-primary" id="auth-btn">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 80px; padding-top: 40px;">
+        
+        <!-- HEADER BAB -->
+        <div class="chapter-header" style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);">
+            <div>
+                <span class="badge-pill" style="margin-bottom: 10px; display: inline-block;">Bab 3</span>
+                <h1 style="color: #1e293b; margin-bottom: 10px;">Styling Modern dengan Tailwind CSS</h1>
+                <p style="color: #64748b;">Mengenal Utility-First Framework yang menggeser dominasi Bootstrap.</p>
+            </div>
+            <div style="text-align: right;">
+                <span style="display: block; font-size: 0.9rem; color: #64748b;">Estimasi</span>
+                <strong style="color: #16a34a; font-size: 1.2rem;">60 Menit</strong>
+            </div>
+        </div>
+
+        <div class="materi-layout" style="padding: 0; display: flex; flex-direction: column; gap: 30px;">
+            
+             <!-- NAVIGASI MATERI (ATAS) -->
+            <div class="bento-card" style="padding: 25px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-list-ul" style="color: var(--primary);"></i> Navigasi Materi
+                </h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="bab1.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 1</a>
+                    <a href="bab2.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 2</a>
+                    <a href="bab3.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f0fdf4; border: 1px solid #16a34a; border-radius: 8px; color: #16a34a; font-weight: 700; font-size: 0.9rem; white-space: nowrap;">Bab 3</a>
+                    <a href="bab4.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 4</a>
+                    <a href="bab5.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 5</a>
+                    <a href="bab6.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 6</a>
+                    <a href="bab7.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 7</a>
+                </div>
+            </div>
+
+            <!-- KONTEN UTAMA -->
+            <main style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- 3.1 Pengenalan Tailwind CSS -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-wind"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">3.1 Pengenalan Tailwind CSS: Utility-First Framework</h2>
+                    </div>
+                    <p class="card-desc">
+                        Selama satu dekade terakhir, Bootstrap menjadi raja framework CSS. Namun, dominasinya mulai digeser oleh Tailwind CSS karena pendekatan yang berbeda dan fleksibel.
+                    </p>
+
+                    <!-- 3.1.1 Apa itu Utility-First? -->
+                    <div style="margin-top: 25px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.1.1 Apa itu Utility-First?</h3>
+                        <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                            Pendekatan di mana kita membangun desain antarmuka (UI) dengan menyusun kelas-kelas kecil (utilitas) yang masing-masing memiliki satu fungsi spesifik.
+                        </p>
+                        <p style="font-size: 0.9rem; color: #64748b; margin-top: 10px;">
+                            Jika pada CSS tradisional kita membuat kelas semantik seperti <code>.tombol-biru</code> yang berisi banyak properti, di Tailwind kita langsung menuliskan propertinya di HTML: <code>bg-blue-500 p-4 rounded text-white</code>.
+                        </p>
+                    </div>
+
+                    <!-- 3.1.2 Perbandingan dengan Bootstrap -->
+                    <div style="margin-top: 15px;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.1.2 Perbandingan dengan Framework Lain (Bootstrap)</h3>
+                        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px;">
+                            Berdasarkan penelitian komparasi framework (Putra et al., 2025), berikut adalah perbedaan mendasar antara Tailwind dan Bootstrap:
+                        </p>
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%;">Fitur</th>
+                                    <th style="width: 40%;">Bootstrap (Komponen)</th>
+                                    <th style="width: 40%;">Tailwind CSS (Utility)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Cara Kerja</strong></td>
+                                    <td>Memberikan komponen siap pakai (Button, Navbar, Modal).</td>
+                                    <td>Memberikan "balok lego" (warna, jarak, ukuran) untuk dirakit sendiri.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Keunikan Desain</strong></td>
+                                    <td>Rendah. Website cenderung terlihat seragam ("Bootstrap look").</td>
+                                    <td>Sangat Tinggi. Desain bisa dikustomisasi 100% tanpa batas.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ukuran File</strong></td>
+                                    <td>Besar, karena memuat semua style komponen.</td>
+                                    <td>Sangat Kecil, karena fitur Tree-Shaking membuang class yang tidak dipakai.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ketergantungan</strong></td>
+                                    <td>Sering membutuhkan file JavaScript tambahan.</td>
+                                    <td>Murni CSS, tidak membebani kinerja browser.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <blockquote style="margin-top: 20px; padding: 15px; background: #fff7ed; border-left: 4px solid #f97316; font-style: italic; color: #9a3412; font-size: 0.95rem; border-radius: 4px;">
+                            "Pendekatan Utility-First terbukti meningkatkan efisiensi waktu pengembangan jangka panjang karena developer tidak perlu berpindah-pindah antara file HTML dan CSS." (Maharani, 2025).
+                        </blockquote>
+                    </div>
+                </div>
+
+                <!-- 3.2 Instalasi & Konfigurasi -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-download"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">3.2 Instalasi & Konfigurasi Tailwind (CDN & NPM)</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Detail</button>
+                    </div>
+                    <p class="card-desc">Tailwind dapat dipasang dengan dua cara, tergantung kebutuhan proyek Anda.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
+                        <!-- 3.2.1 CDN -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.2.1 Metode CDN (Content Delivery Network)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">
+                                Metode ini paling cepat untuk keperluan belajar atau prototyping. Tidak perlu instalasi software. Cukup tambahkan script berikut di dalam tag <code>&lt;head&gt;</code> file HTML Anda.
+                            </p>
+                            <div class="code-window" style="margin: 0 0 15px 0;">
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <div style="background: #f0fdf4; padding: 10px; border-radius: 8px; font-size: 0.85rem; color: #166534;">
+                                    <strong>Kelebihan:</strong> Bisa langsung jalan tanpa Node.js, cocok untuk pemula.
+                                </div>
+                                <div style="background: #fef2f2; padding: 10px; border-radius: 8px; font-size: 0.85rem; color: #991b1b;">
+                                    <strong>Kekurangan:</strong> Ukuran file besar (tidak dioptimasi), tidak bisa menggunakan fitur canggih seperti @apply.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3.2.2 NPM -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.2.2 Metode NPM (Node Package Manager)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 15px;">
+                                Ini adalah standar industri untuk proyek profesional. Memerlukan instalasi Node.js.
+                            </p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <div>
+                                    <strong style="font-size: 0.9rem; color: #1e293b;">1. Inisialisasi Proyek</strong>
+                                    <div class="code-window" style="margin-top: 5px; padding: 10px;">npm init -y</div>
+                                </div>
+                                <div>
+                                    <strong style="font-size: 0.9rem; color: #1e293b;">2. Instalasi Tailwind</strong>
+                                    <div class="code-window" style="margin-top: 5px; padding: 10px;">
+npm install -D tailwindcss
+npx tailwindcss init
+                                    </div>
+                                </div>
+                                <div>
+                                    <strong style="font-size: 0.9rem; color: #1e293b;">3. Konfigurasi (tailwind.config.js)</strong>
+                                    <div class="code-window" style="margin-top: 5px; padding: 10px;">
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: { extend: {} },
+  plugins: [],
+}
+                                    </div>
+                                </div>
+                                <div>
+                                    <strong style="font-size: 0.9rem; color: #1e293b;">4. Build Process</strong>
+                                    <div class="code-window" style="margin-top: 5px; padding: 10px;">
+npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 3.3 Sistem Layout -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-th-large"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">3.3 Sistem Layout: Flexbox & Grid di Tailwind</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Layouting adalah pondasi tampilan web. Tailwind menyediakan kelas utilitas lengkap untuk Flexbox dan CSS Grid.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 3.3.1 Flexbox -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.3.1 Flexbox Utilities</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Digunakan untuk mengatur elemen dalam satu dimensi (baris atau kolom). Sangat ideal untuk Navbar atau meratakan konten.</p>
+                            
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>flex</code>: Mengaktifkan container flex.</li>
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>flex-row / flex-col</code>: Mengatur arah elemen.</li>
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>justify-center</code>: Meratakan konten secara horizontal ke tengah.</li>
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>items-center</code>: Meratakan konten secara vertikal ke tengah.</li>
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px; grid-column: span 2;"><code>justify-between</code>: Memberi jarak maksimal antar elemen (kiri-kanan).</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3.3.2 Grid -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.3.2 Grid Utilities</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">CSS Grid digunakan untuk layout dua dimensi yang lebih kompleks, seperti galeri foto atau dashboard.</p>
+                            
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.9rem;">
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>grid</code>: Mengaktifkan container grid.</li>
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>grid-cols-3</code>: Membagi layout menjadi 3 kolom.</li>
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>gap-4</code>: Memberikan jarak antar kotak (gutter).</li>
+                                <li style="background: white; padding: 8px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>col-span-2</code>: Membuat elemen melebar 2 kolom.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+&lt;!-- Contoh Kode Navbar Flexbox --&gt;
+&lt;nav class="flex justify-between items-center bg-gray-800 p-4 text-white"&gt;
+  &lt;div class="font-bold text-xl"&gt;LogoBrand&lt;/div&gt;
+  &lt;div class="flex space-x-4"&gt;
+      &lt;a href="#" class="hover:text-blue-300"&gt;Home&lt;/a&gt;
+      &lt;a href="#" class="hover:text-blue-300"&gt;About&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;!-- Contoh Kode Galeri Grid --&gt;
+&lt;div class="grid grid-cols-3 gap-4 p-4"&gt;
+  &lt;div class="bg-blue-200 h-32 rounded"&gt;Kotak 1&lt;/div&gt;
+  &lt;div class="bg-blue-300 h-32 rounded"&gt;Kotak 2&lt;/div&gt;
+  &lt;div class="bg-blue-400 h-32 rounded"&gt;Kotak 3&lt;/div&gt;
+  &lt;div class="bg-blue-500 h-32 rounded col-span-3 text-center"&gt;Footer Lebar&lt;/div&gt;
+&lt;/div&gt;
+                    </div>
+                </div>
+
+                <!-- 3.4 Typography, Spacing, dan Warna -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-palette"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">3.4 Typography, Spacing, dan Warna</h2>
+                        </div>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Tailwind menyediakan sistem desain (Design System) yang konsisten. Developer tidak perlu menebak ukuran pixel secara manual, melainkan menggunakan skala yang sudah ditentukan.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 3.4.1 Typography -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.4.1 Typography (Tipografi)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Tailwind menggunakan skala rem untuk ukuran font.</p>
+                            
+                            <table class="custom-table" style="font-size: 0.85rem;">
+                                <thead>
+                                    <tr>
+                                        <th>Kelas</th>
+                                        <th>Ukuran</th>
+                                        <th>Penggunaan Umum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>text-xs</td><td>12px</td><td>Label kecil, copyright.</td></tr>
+                                    <tr><td>text-sm</td><td>14px</td><td>Deskripsi sekunder.</td></tr>
+                                    <tr><td>text-base</td><td>16px</td><td>Teks paragraf standar.</td></tr>
+                                    <tr><td>text-lg</td><td>18px</td><td>Sub-judul artikel.</td></tr>
+                                    <tr><td>text-xl</td><td>20px</td><td>Judul kartu.</td></tr>
+                                    <tr><td>text-3xl</td><td>30px</td><td>Judul utama halaman (H1).</td></tr>
+                                    <tr><td>font-bold</td><td>700</td><td>Menebalkan teks.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 3.4.2 Colors -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.4.2 Colors (Sistem Warna)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Warna di Tailwind diberi nama dan nomor intensitas (50-950).</p>
+                            
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font-size: 0.85rem;">
+                                <li style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 20px; height: 20px; background-color: #ef4444; border-radius: 4px;"></div>
+                                    <span>bg-red-500</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 20px; height: 20px; background-color: #1d4ed8; border-radius: 4px;"></div>
+                                    <span>text-blue-700</span>
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 20px; height: 20px; border: 2px solid #e5e7eb; border-radius: 4px;"></div>
+                                    <span>border-gray-200</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 3.4.3 Spacing -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.4.3 Spacing (Jarak)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Mengatur Margin (m) dan Padding (p). Skala dasarnya adalah 1 unit = 4px.</p>
+                            
+                            <table class="custom-table" style="font-size: 0.85rem;">
+                                <thead>
+                                    <tr>
+                                        <th>Kelas</th>
+                                        <th>Nilai Pixel</th>
+                                        <th>Penjelasan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>p-1</td><td>4px</td><td>Padding sangat tipis.</td></tr>
+                                    <tr><td>p-4</td><td>16px</td><td>Padding standar industri.</td></tr>
+                                    <tr><td>m-8</td><td>32px</td><td>Margin lebar.</td></tr>
+                                    <tr><td>mx-auto</td><td>Auto</td><td>Membuat elemen rata tengah horizontal.</td></tr>
+                                    <tr><td>my-4</td><td>16px</td><td>Margin atas dan bawah saja.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.5 Responsive Design -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-mobile-alt"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">3.5 Responsive Design dengan Breakpoints Tailwind</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Fitur paling kuat dari Tailwind adalah kemudahan membuat desain responsif (Mobile-First). Kita mendesain untuk HP dulu, baru menambahkan aturan untuk layar besar.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 3.5.1 Breakpoints Table -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.5.1 Tabel Breakpoints Responsif</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Tailwind menggunakan prefix kelas untuk menargetkan ukuran layar tertentu.</p>
+                            
+                            <table class="custom-table" style="font-size: 0.85rem;">
+                                <thead>
+                                    <tr>
+                                        <th>Prefix</th>
+                                        <th>Ukuran Layar Min</th>
+                                        <th>Perangkat Target</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>(None)</td><td>0px</td><td>HP Vertikal (Default)</td></tr>
+                                    <tr><td>sm:</td><td>640px</td><td>HP Landscape / Tablet Kecil</td></tr>
+                                    <tr><td>md:</td><td>768px</td><td>Tablet (iPad)</td></tr>
+                                    <tr><td>lg:</td><td>1024px</td><td>Laptop / Desktop Kecil</td></tr>
+                                    <tr><td>xl:</td><td>1280px</td><td>Monitor Desktop Standar</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- 3.5.2 Implementation Example -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.5.2 Contoh Implementasi Responsif</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">
+                                Kode berikut membuat layout yang berubah: 1 kolom di HP, 2 kolom di Tablet, 3 kolom di Laptop.
+                            </p>
+                            <div class="code-window" style="margin: 0;">
+&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"&gt;
+    &lt;div class="bg-white shadow p-6"&gt;Konten 1&lt;/div&gt;
+    &lt;div class="bg-white shadow p-6"&gt;Konten 2&lt;/div&gt;
+    &lt;div class="bg-white shadow p-6"&gt;Konten 3&lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+&lt;!-- Contoh Lengkap Responsif --&gt;
+&lt;div class="container mx-auto px-4"&gt;
+  &lt;h1 class="text-xl md:text-3xl lg:text-5xl font-bold text-center"&gt;
+    Judul Responsif
+  &lt;/h1&gt;
+  
+  &lt;div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8"&gt;
+    &lt;div class="bg-blue-100 p-4"&gt;Box 1&lt;/div&gt;
+    &lt;div class="bg-blue-100 p-4"&gt;Box 2&lt;/div&gt;
+    &lt;div class="bg-blue-100 p-4"&gt;Box 3&lt;/div&gt;
+    &lt;div class="bg-blue-100 p-4"&gt;Box 4&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                    </div>
+                </div>
+
+                <!-- 3.6 Komponen Praktis -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-layer-group"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">3.6 Komponen Praktis (Navbar, Card, Button, Footer)</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Setelah memahami dasar-dasarnya, mari kita rakit menjadi komponen UI nyata.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 3.6.1 Button -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.6.1 Komponen Button (Tombol)</h3>
+                            <div class="code-window" style="margin: 0;">
+&lt;button class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition duration-300"&gt;
+  Klik Saya
+&lt;/button&gt;
+                            </div>
+                        </div>
+
+                        <!-- 3.6.2 Card -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.6.2 Komponen Card (Kartu Produk)</h3>
+                            <div class="code-window" style="margin: 0;">
+&lt;div class="max-w-sm rounded overflow-hidden shadow-lg bg-white"&gt;
+  &lt;img class="w-full" src="https://via.placeholder.com/400" alt="Produk"&gt;
+  &lt;div class="px-6 py-4"&gt;
+    &lt;div class="font-bold text-xl mb-2"&gt;Sepatu Lari&lt;/div&gt;
+    &lt;p class="text-gray-700 text-base"&gt;
+      Sepatu nyaman untuk olahraga harian Anda.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.7 Kustomisasi Tema & Plugin -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-magic"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">3.7 Kustomisasi Tema & Plugin Tailwind</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Dengan menggabungkan berbagai class utilitas, kita dapat membangun komponen UI yang kompleks dan fungsional.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 3.7.1 Button -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.7.1 Button (Tombol Interaktif)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Class <code>hover:</code> digunakan untuk mengubah warna saat mouse melintas, dan <code>transition</code> memberikan efek animasi halus.</p>
+                            <div class="code-window" style="margin: 0;">
+&lt;button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow transition duration-300 ease-in-out transform hover:scale-105"&gt;
+  Klik Saya
+&lt;/button&gt;
+                            </div>
+                        </div>
+
+                        <!-- 3.7.2 Card -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">3.7.2 Card (Kartu Artikel)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Komponen ini sering digunakan untuk menampilkan ringkasan postingan blog atau katalog produk e-commerce.</p>
+                            <div class="code-window" style="margin: 0;">
+&lt;div class="max-w-sm rounded overflow-hidden shadow-lg bg-white border border-gray-200"&gt;
+  &lt;img class="w-full h-48 object-cover" src="https://via.placeholder.com/400x200" alt="Pemandangan"&gt;
+  &lt;div class="px-6 py-4"&gt;
+    &lt;div class="font-bold text-xl mb-2 text-gray-800"&gt;Gunung Bromo&lt;/div&gt;
+    &lt;p class="text-gray-600 text-base"&gt;
+      Keindahan alam Indonesia yang memukau mata dunia. Terletak di Jawa Timur, gunung ini menawarkan pemandangan matahari terbit yang ikonik.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="px-6 pt-4 pb-2 border-t border-gray-100"&gt;
+    &lt;span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"&gt;#Travel&lt;/span&gt;
+    &lt;span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"&gt;#Indonesia&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.8 Studi Kasus -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-laptop-code"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">3.8 Studi Kasus: Membangun Landing Page Responsif</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode Lengkap</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Terkadang warna atau font bawaan Tailwind kurang sesuai dengan identitas visual (branding) perusahaan. Kita bisa mengubah konfigurasi default melalui file <code>tailwind.config.js</code>.
+                    </p>
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 20px;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">Contoh Menambah Warna Kustom</h3>
+                        <div class="code-window" style="margin: 0;">
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'brand-primary': '#003366', // Warna biru korporat
+        'brand-accent': '#FFCC00',  // Warna kuning emas
+      },
+      fontFamily: {
+        'sans': ['Graphik', 'sans-serif'],
+        'serif': ['Merriweather', 'serif'],
+      }
+    }
+  }
+}
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="margin: 0; display: none;">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+  &lt;title&gt;Jasa Web Profesional - Kelompok 3&lt;/title&gt;
+&lt;/head&gt;
+&lt;body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" style="background-image:url('https://source.unsplash.com/random/1600x900/?technology');"&gt;
+  &lt;div class="min-h-screen bg-gray-900 bg-opacity-75 flex items-center justify-center"&gt;
+    &lt;div class="max-w-4xl flex items-center h-auto flex-wrap mx-auto my-32 lg:my-0"&gt;
+      
+      &lt;!-- Bagian Kiri: Kartu Informasi Utama --&gt;
+      &lt;div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-95 mx-6 lg:mx-0 transform transition hover:scale-105 duration-500"&gt;
+        &lt;div class="p-4 md:p-12 text-center lg:text-left"&gt;
+          &lt;div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center border-4 border-white" style="background-image: url('https://source.unsplash.com/random/400x400/?man')"&gt;&lt;/div&gt;
+          &lt;h1 class="text-3xl font-bold pt-8 lg:pt-0 text-gray-800"&gt;Kelompok 3 Agency&lt;/h1&gt;
+          &lt;div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"&gt;&lt;/div&gt;
+          &lt;p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start text-gray-600"&gt;
+            Solusi Digital Terpercaya
+          &lt;/p&gt;
+          &lt;p class="pt-8 text-sm text-gray-600 leading-relaxed"&gt;
+            Kami membantu UMKM Go Digital dengan website super cepat berbasis &lt;strong&gt;Tailwind CSS&lt;/strong&gt;. Layanan kami mencakup desain UI/UX responsif, optimasi SEO, dan performa tinggi yang siap bersaing di pasar global.
+          &lt;/p&gt;
+          &lt;div class="pt-12 pb-8"&gt;
+            &lt;button class="bg-green-600 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300"&gt;Hubungi Kami&lt;/button&gt;
+            &lt;button class="bg-transparent hover:bg-green-100 text-green-700 font-semibold py-3 px-6 border border-green-500 hover:border-transparent rounded-full ml-2 transition duration-300"&gt;Lihat Portofolio&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class="mt-6 pb-2 text-gray-500 text-sm"&gt;
+            &lt;span&gt;&copy; 2025 Kelompok 3. All rights reserved.&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;!-- Bagian Kanan: Gambar Visual --&gt;
+      &lt;div class="w-full lg:w-2/5"&gt;
+        &lt;img src="https://source.unsplash.com/random/400x600/?coding,laptop" class="rounded-none lg:rounded-r-lg shadow-2xl hidden lg:block h-auto object-cover opacity-90"&gt;
+      &lt;/div&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </div>
+                </div>
+
+                <!-- Action Area -->
+                <div class="bento-card action-area" style="background: linear-gradient(135deg, #f0fdf4, #ffffff); border: 2px dashed #bbf7d0; text-align: center; padding: 40px;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #16a34a; margin-bottom: 15px;"></i>
+                    <h3 style="color: #1e293b; margin-bottom: 10px;">Ahli Tailwind!</h3>
+                    <p style="color: #64748b; margin-bottom: 20px;">Anda sudah menguasai Styling Modern dengan Tailwind CSS. Ambil <strong>+50 XP</strong> sekarang!</p>
+                    <button id="mark-complete" data-bab="bab3" class="btn btn-primary">
+                        Tandai Selesai
+                    </button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

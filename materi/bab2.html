@@ -1,0 +1,538 @@
+<!--
+Nama file       : materi/bab2.html
+Tanggal ngoding : Rabu, 7 Januari 2026
+Kelas           : 05TPLP017
+Kelompok        : Kelompok 3
+Anggota         : Al Amin Abdilah, Alif Ananda, Yuda Prima
+Deskripsi       : Halaman Materi Bab 2 - Fondasi HTML5 Lanjutan (Hyperlink, List, Gambar, Multimedia, Form, Semantic, Studi Kasus).
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 2: HTML Lanjutan - CodeDock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Table untuk Alat Pengembangan */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .tool-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/CodeDc.png" alt="CodeDock Logo" style="height: 60px; object-fit: contain;">
+            </a>
+            
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="bab1.html">Bab 1: HTML Dasar</a>
+                        <a href="bab2.html">Bab 2: HTML Lanjutan</a>
+                        <a href="bab3.html">Bab 3: CSS & Tailwind</a>
+                        <a href="bab4.html">Bab 4: JavaScript</a>
+                        <a href="bab5.html">Bab 5: Integrasi</a>
+                        <a href="bab6.html">Bab 6: Best Practices</a>
+                        <a href="bab7.html">Bab 7: UI/UX & Optimasi</a>
+                    </div>
+                </li>
+                <li><a href="../about.html">Tentang</a></li>
+                <li><a href="../contact.html">Kontak</a></li>
+                <li><a href="../login.html" class="btn btn-primary" id="auth-btn">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 80px; padding-top: 40px;">
+        
+        <!-- HEADER BAB -->
+        <div class="chapter-header" style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);">
+            <div>
+                <span class="badge-pill" style="margin-bottom: 10px; display: inline-block;">Bab 2</span>
+                <h1 style="color: #1e293b; margin-bottom: 10px;">Fondasi HTML5 Lanjutan</h1>
+                <p style="color: #64748b;">Membangun struktur web yang kaya fitur dengan Multimedia, Form Modern, dan Semantik.</p>
+            </div>
+            <div style="text-align: right;">
+                <span style="display: block; font-size: 0.9rem; color: #64748b;">Estimasi</span>
+                <strong style="color: #16a34a; font-size: 1.2rem;">60 Menit</strong>
+            </div>
+        </div>
+
+        <div class="materi-layout" style="padding: 0; display: flex; flex-direction: column; gap: 30px;">
+            
+             <!-- NAVIGASI MATERI (ATAS) -->
+            <div class="bento-card" style="padding: 25px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-list-ul" style="color: var(--primary);"></i> Navigasi Materi
+                </h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="bab1.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 1</a>
+                    <a href="bab2.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f0fdf4; border: 1px solid #16a34a; border-radius: 8px; color: #16a34a; font-weight: 700; font-size: 0.9rem; white-space: nowrap;">Bab 2</a>
+                    <a href="bab3.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 3</a>
+                    <a href="bab4.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 4</a>
+                    <a href="bab5.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 5</a>
+                    <a href="bab6.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 6</a>
+                    <a href="bab7.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 7</a>
+                </div>
+            </div>
+
+            <!-- KONTEN UTAMA -->
+            <main style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- 2.3 Hyperlink, List, dan Gambar -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-link"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">2.3 Hyperlink, List, dan Gambar</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode Lengkap</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Tiga elemen fundamental yang membuat web menjadi kaya informasi dan terhubung satu sama lain.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <!-- 2.3.1 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">2.3.1 Hyperlink (Anchor)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Tag <code>&lt;a&gt;</code> adalah inti dari World Wide Web.
+                            </p>
+                            <ul style="list-style: disc; padding-left: 20px; color: #64748b; font-size: 0.9rem; margin-top: 10px;">
+                                <li><strong>href:</strong> Tujuan link (URL Absolute, Relative, atau Anchor ID).</li>
+                                <li><strong>target="_blank":</strong> Membuka link di tab baru (wajib untuk link eksternal).</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2.3.2 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">2.3.2 List (Daftar)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                HTML menyediakan tiga jenis list untuk mengorganisir data:
+                            </p>
+                            <ul style="list-style: disc; padding-left: 20px; color: #64748b; font-size: 0.9rem; margin-top: 10px;">
+                                <li><strong>Unordered List (&lt;ul&gt;):</strong> Daftar dengan simbol bullet (urutan tidak penting).</li>
+                                <li><strong>Ordered List (&lt;ol&gt;):</strong> Daftar dengan nomor/huruf (urutan penting).</li>
+                                <li><strong>Description List (&lt;dl&gt;):</strong> Daftar definisi istilah.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2.3.3 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">2.3.3 Gambar (&lt;img&gt;) dan Figure</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">
+                                Mempercantik web dengan konten visual.
+                            </p>
+                            <ul style="list-style: disc; padding-left: 20px; color: #64748b; font-size: 0.9rem; margin-top: 10px;">
+                                <li><strong>Tag &lt;img&gt;:</strong> Bersifat self-closing. Wajib gunakan atribut <code>alt</code> untuk SEO & aksesibilitas.</li>
+                                <li><strong>Figure & Figcaption:</strong> Tag semantik untuk membungkus gambar dengan teks keterangannya.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+&lt;!-- Contoh Galeri Produk --&gt;
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;h3&gt;Elektronik&lt;/h3&gt;
+        &lt;ol&gt;
+            &lt;li&gt;
+                &lt;a href="laptop_detail.html" target="_blank"&gt;Laptop Gaming&lt;/a&gt;
+                &lt;figure&gt;
+                    &lt;img src="laptop.jpg" alt="Laptop Gaming RGB" width="200"&gt;
+                    &lt;figcaption&gt;Gambar 1. Laptop Spesifikasi Tinggi&lt;/figcaption&gt;
+                &lt;/figure&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a href="#smartphone"&gt;Smartphone 5G&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+                    </div>
+                </div>
+
+                <!-- 2.4 Multimedia (Audio, Video) -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-video"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">2.4 Multimedia (Audio, Video)</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        HTML5 menghadirkan dukungan multimedia native tanpa memerlukan plugin eksternal seperti Flash.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <!-- 2.4.1 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">2.4.1 Audio (&lt;audio&gt;)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">Digunakan untuk memutar suara atau musik latar.</p>
+                            <ul style="list-style: disc; padding-left: 20px; color: #64748b; font-size: 0.9rem; margin-top: 10px;">
+                                <li><strong>Format Support:</strong> MP3 (Universal), OGG, WAV.</li>
+                                <li><strong>Atribut:</strong> <code>controls</code>, <code>autoplay</code>, <code>loop</code>, <code>muted</code>.</li>
+                            </ul>
+                        </div>
+                        <!-- 2.4.2 -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 5px; font-weight: 700;">2.4.2 Video (&lt;video&gt;)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin: 0;">Digunakan untuk memutar video.</p>
+                            <ul style="list-style: disc; padding-left: 20px; color: #64748b; font-size: 0.9rem; margin-top: 10px;">
+                                <li><strong>Format Support:</strong> MP4 (H.264), WebM.</li>
+                                <li><strong>Atribut:</strong> <code>poster</code> (thumbnail sebelum diputar), <code>width</code>, <code>height</code>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+&lt;section&gt;
+    &lt;h2&gt;Dokumentasi Kegiatan Kampus&lt;/h2&gt;
+    
+    &lt;article&gt;
+        &lt;h3&gt;Video Profil (Local File)&lt;/h3&gt;
+        &lt;video width="400" controls poster="poster.jpg"&gt;
+            &lt;source src="profil.mp4" type="video/mp4"&gt;
+            &lt;source src="profil.webm" type="video/webm"&gt;
+            Browser Anda tidak mendukung tag video.
+        &lt;/video&gt;
+    &lt;/article&gt;
+
+    &lt;article&gt;
+        &lt;h3&gt;Rekaman Seminar (Audio Only)&lt;/h3&gt;
+        &lt;audio controls&gt;
+            &lt;source src="seminar.mp3" type="audio/mpeg"&gt;
+        &lt;/audio&gt;
+    &lt;/article&gt;
+
+    &lt;article&gt;
+        &lt;h3&gt;Video YouTube (Iframe)&lt;/h3&gt;
+        &lt;iframe width="400" height="225" 
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+            title="YouTube video" frameborder="0" allowfullscreen&gt;
+        &lt;/iframe&gt;
+    &lt;/article&gt;
+&lt;/section&gt;
+                    </div>
+                </div>
+
+                <!-- 2.5 Form Modern -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-edit"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">2.5 Form & Input Modern</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+                    
+                    <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">2.5.1 Tipe Input Baru HTML5</h3>
+                    <p class="card-desc" style="margin-bottom: 15px;">Meningkatkan UX dengan keyboard yang sesuai di mobile.</p>
+
+                    <table class="custom-table" style="margin-bottom: 20px;">
+                        <thead>
+                            <tr>
+                                <th>Tipe</th>
+                                <th>Deskripsi</th>
+                                <th>Tampilan Mobile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>email</code></td>
+                                <td>Validasi format '@'</td>
+                                <td>Keyboard dengan '@' dan '.'</td>
+                            </tr>
+                            <tr>
+                                <td><code>number</code></td>
+                                <td>Hanya angka, atribut min/max/step</td>
+                                <td>Numpad (Angka Besar)</td>
+                            </tr>
+                            <tr>
+                                <td><code>date</code></td>
+                                <td>Kalender interaktif (Date Picker)</td>
+                                <td>Roda tanggal / Kalender Native</td>
+                            </tr>
+                            <tr>
+                                <td><code>tel</code></td>
+                                <td>Input nomor telepon</td>
+                                <td>Dialer Pad</td>
+                            </tr>
+                            <tr>
+                                <td><code>url</code></td>
+                                <td>Input alamat website</td>
+                                <td>Keyboard dengan '.com'</td>
+                            </tr>
+                            <tr>
+                                <td><code>color</code></td>
+                                <td>Pemilih warna visual</td>
+                                <td>Palet warna / Roda warna</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="code-window" style="display: none; margin-top: 15px;">
+&lt;form action="proses.php"&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Data Mahasiswa Baru&lt;/legend&gt;
+
+    &lt;label&gt;Email Kampus:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="email" required placeholder="nama@unpam.ac.id"&gt;
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;label&gt;Tanggal Lahir:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="date" min="1990-01-01" max="2010-12-31"&gt;
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;label&gt;Target IPK:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="number" step="0.01" min="0" max="4.00" placeholder="3.50"&gt;
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;label&gt;Warna Favorit:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="color" name="warna"&gt;
+    &lt;br&gt;&lt;br&gt;
+    
+    &lt;button type="submit"&gt;Simpan Data&lt;/button&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+                    </div>
+                </div>
+
+                <!-- 2.6 Semantic HTML -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-sitemap"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">2.6 Semantic HTML</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Semantic HTML berarti menggunakan tag yang memiliki makna (bukan hanya <code>&lt;div&gt;</code>). Ini sangat krusial untuk SEO dan aksesibilitas.
+                    </p>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">2.6.1 Daftar Elemen Semantik Utama</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            <div style="background: #fff7ed; padding: 15px; border-radius: 12px; border: 1px solid #fed7aa;">
+                                <strong style="color: #9a3412;">&lt;header&gt;</strong>
+                                <p style="font-size: 0.85rem; color: #7c2d12; margin-top: 5px;">Kepala halaman/artikel. Berisi logo, judul, navigasi.</p>
+                            </div>
+                            <div style="background: #fff7ed; padding: 15px; border-radius: 12px; border: 1px solid #fed7aa;">
+                                <strong style="color: #9a3412;">&lt;nav&gt;</strong>
+                                <p style="font-size: 0.85rem; color: #7c2d12; margin-top: 5px;">Wadah khusus untuk menu navigasi (link).</p>
+                            </div>
+                            <div style="background: #ecfeff; padding: 15px; border-radius: 12px; border: 1px solid #a5f3fc;">
+                                <strong style="color: #155e75;">&lt;section&gt;</strong>
+                                <p style="font-size: 0.85rem; color: #164e63; margin-top: 5px;">Mengelompokkan konten dengan tema sama (misal: Bab).</p>
+                            </div>
+                            <div style="background: #ecfeff; padding: 15px; border-radius: 12px; border: 1px solid #a5f3fc;">
+                                <strong style="color: #155e75;">&lt;article&gt;</strong>
+                                <p style="font-size: 0.85rem; color: #164e63; margin-top: 5px;">Konten independen yang berdiri sendiri (blog post).</p>
+                            </div>
+                            <div style="background: #f0fdf4; padding: 15px; border-radius: 12px; border: 1px solid #bbf7d0;">
+                                <strong style="color: #166534;">&lt;aside&gt;</strong>
+                                <p style="font-size: 0.85rem; color: #14532d; margin-top: 5px;">Konten pendamping/sampingan (sidebar, iklan).</p>
+                            </div>
+                            <div style="background: #f1f5f9; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                                <strong style="color: #475569;">&lt;footer&gt;</strong>
+                                <p style="font-size: 0.85rem; color: #334155; margin-top: 5px;">Kaki halaman (copyright, kontak, peta situs).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        /* Visualisasi layout sederhana */
+        header, nav, main, footer { padding: 10px; border: 1px solid gray; margin: 5px; }
+        aside { background: #f0f0f0; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;h1&gt;Portal Berita IT&lt;/h1&gt;
+    &lt;/header&gt;
+
+    &lt;nav&gt;
+        &lt;a href="#home"&gt;Home&lt;/a&gt; | 
+        &lt;a href="#news"&gt;News&lt;/a&gt; | 
+        &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;div style="display: flex;"&gt;
+        &lt;main style="flex: 70%;"&gt;
+            &lt;section&gt;
+                &lt;h2&gt;Berita Terkini&lt;/h2&gt;
+                &lt;article&gt;
+                    &lt;h3&gt;Belajar Semantic HTML&lt;/h3&gt;
+                    &lt;p&gt;Semantic HTML membantu Google memahami struktur...&lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article&gt;
+                    &lt;h3&gt;Tutorial Tailwind CSS&lt;/h3&gt;
+                    &lt;p&gt;Tailwind mempercepat proses styling...&lt;/p&gt;
+                &lt;/article&gt;
+            &lt;/section&gt;
+        &lt;/main&gt;
+
+        &lt;aside style="flex: 30%;"&gt;
+            &lt;h3&gt;Arsip Berita&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Januari 2025&lt;/li&gt;
+                &lt;li&gt;Februari 2025&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/aside&gt;
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2025 Kelompok 3. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+                    </div>
+                </div>
+
+                <!-- 2.7 Studi Kasus -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-briefcase"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">2.7 Studi Kasus: Profil Pribadi</h2>
+                    </div>
+                    
+                    <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">2.7.1 Skenario Proyek</h3>
+                    <p class="card-desc" style="margin-bottom: 15px;">Gabungkan semua materi (Teks, Link, Gambar, Form, Semantik) untuk membuat <strong>Personal Homepage</strong>.</p>
+                    
+                    <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; color: #64748b; font-size: 0.9rem;">
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle" style="color: #16a34a;"></i> Header (Foto Profil & Nama)</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle" style="color: #16a34a;"></i> Navigasi (About, Skills, Contact)</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle" style="color: #16a34a;"></i> Daftar Keahlian (List)</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle" style="color: #16a34a;"></i> Form Kontak Modern</li>
+                        <li style="display: flex; align-items: center; gap: 10px;"><i class="fas fa-check-circle" style="color: #16a34a;"></i> Video Perkenalan Diri</li>
+                    </ul>
+
+                    <div style="margin-top: 20px;">
+                         <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px; width: 100%;"><i class="fas fa-code"></i> Lihat Kode Lengkap Proyek</button>
+                         <div class="code-window" style="display: none; margin-top: 15px;">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Profil Mahasiswa IT&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- Header --&gt;
+  &lt;header style="background-color: #333; color: white; padding: 20px; text-align: center;"&gt;
+    &lt;h1&gt;Halo, Saya [Nama Anda]&lt;/h1&gt;
+    &lt;p&gt;Junior Web Developer&lt;/p&gt;
+  &lt;/header&gt;
+  
+  &lt;!-- Navigasi --&gt;
+  &lt;nav style="text-align: center; padding: 10px;"&gt;
+    &lt;a href="#about"&gt;Tentang Saya&lt;/a&gt; | 
+    &lt;a href="#skills"&gt;Keahlian&lt;/a&gt; | 
+    &lt;a href="#contact"&gt;Hubungi Saya&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;hr&gt;
+
+  &lt;main&gt;
+    &lt;!-- About --&gt;
+    &lt;section id="about"&gt;
+      &lt;h2&gt;Tentang Saya&lt;/h2&gt;
+      &lt;figure&gt;
+        &lt;img src="foto.jpg" alt="Foto Profil"&gt;
+        &lt;figcaption&gt;Foto Profil Resmi&lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;p&gt;Mahasiswa semester 3 mendalami &lt;strong&gt;HTML5, CSS, JS&lt;/strong&gt;.&lt;/p&gt;
+      &lt;h3&gt;Video Perkenalan&lt;/h3&gt;
+      &lt;video width="320" height="240" controls&gt;
+        &lt;source src="intro.mp4" type="video/mp4"&gt;
+      &lt;/video&gt;
+    &lt;/section&gt;
+    &lt;hr&gt;
+
+    &lt;!-- Skills --&gt;
+    &lt;section id="skills"&gt;
+      &lt;h2&gt;Keahlian Teknis&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Web Development
+          &lt;ol&gt;
+            &lt;li&gt;HTML5 (Semantic)&lt;/li&gt;
+            &lt;li&gt;CSS3 (Tailwind)&lt;/li&gt;
+            &lt;li&gt;JavaScript (ES6+)&lt;/li&gt;
+          &lt;/ol&gt;
+        &lt;/li&gt;
+        &lt;li&gt;Desain Grafis (Figma)&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/section&gt;
+    &lt;hr&gt;
+
+    &lt;!-- Contact --&gt;
+    &lt;section id="contact"&gt;
+      &lt;h2&gt;Hubungi Saya&lt;/h2&gt;
+      &lt;form action="kirim.php"&gt;
+        &lt;label&gt;Email Anda:&lt;/label&gt;&lt;br&gt;
+        &lt;input type="email" required placeholder="email@contoh.com"&gt;&lt;br&gt;&lt;br&gt;
+        &lt;label&gt;Pesan:&lt;/label&gt;&lt;br&gt;
+        &lt;textarea rows="4"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+        &lt;button type="submit"&gt;Kirim Pesan&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer style="background-color: #eee; padding: 10px; text-align: center;"&gt;
+    &lt;p&gt;Copyright &copy; 2025. Dibuat dengan HTML5 Murni.&lt;/p&gt;
+  &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Action Area -->
+                <div class="bento-card action-area" style="background: linear-gradient(135deg, #f0fdf4, #ffffff); border: 2px dashed #bbf7d0; text-align: center; padding: 40px;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #16a34a; margin-bottom: 15px;"></i>
+                    <h3 style="color: #1e293b; margin-bottom: 10px;">Ahli Layout!</h3>
+                    <p style="color: #64748b; margin-bottom: 20px;">Anda sudah menguasai Fondasi HTML5. Ambil <strong>+50 XP</strong> sekarang!</p>
+                    <button id="mark-complete" data-bab="bab2" class="btn btn-primary">
+                        Tandai Selesai
+                    </button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

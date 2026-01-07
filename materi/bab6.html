@@ -1,0 +1,320 @@
+<!--
+Nama file       : materi/bab6.html
+Tanggal ngoding : Rabu, 7 Januari 2026
+Kelas           : 05TPLP017
+Kelompok        : Kelompok 3
+Anggota         : Al Amin Abdilah, Alif Ananda, Yuda Prima
+Deskripsi       : Halaman Materi Bab 6 - Best Practices & Tren Modern (Lengkap: Manajemen, Airbnb Style, Performa, Keamanan, SEO, PWA, Git, CI/CD).
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 6: Best Practices & Tren Modern - CodeDock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Table untuk Alat Pengembangan */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .tool-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/CodeDc.png" alt="CodeDock Logo" style="height: 60px; object-fit: contain;">
+            </a>
+            
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="bab1.html">Bab 1</a>
+                        <a href="bab2.html">Bab 2</a>
+                        <a href="bab3.html">Bab 3</a>
+                        <a href="bab4.html">Bab 4</a>
+                        <a href="bab5.html">Bab 5</a>
+                        <a href="bab6.html">Bab 6</a>
+                        <a href="bab7.html">Bab 7</a>
+                    </div>
+                </li>
+                <li><a href="../about.html">Tentang</a></li>
+                <li><a href="../contact.html">Kontak</a></li>
+                <li><a href="../login.html" class="btn btn-primary" id="auth-btn">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 80px; padding-top: 40px;">
+        
+        <div class="chapter-header" style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-sm);">
+            <div>
+                <span class="badge-pill" style="margin-bottom: 10px; display: inline-block;">Bab 6</span>
+                <h1 style="color: #1e293b; margin-bottom: 10px;">Best Practices & Tren Modern</h1>
+                <p style="color: #64748b;">Standar industri pengembangan web profesional dan otomatisasi modern.</p>
+            </div>
+            <div style="text-align: right;">
+                <span style="display: block; font-size: 0.9rem; color: #64748b;">Estimasi</span>
+                <strong style="color: #16a34a; font-size: 1.2rem;">120 Menit</strong>
+            </div>
+        </div>
+
+        <div class="materi-layout" style="padding: 0; display: flex; flex-direction: column; gap: 30px;">
+            
+            <!-- NAVIGASI MATERI (ATAS) -->
+            <div class="bento-card" style="padding: 25px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-list-ul" style="color: var(--primary);"></i> Navigasi Materi
+                </h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="bab1.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 1</a>
+                    <a href="bab2.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 2</a>
+                    <a href="bab3.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 3</a>
+                    <a href="bab4.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 4</a>
+                    <a href="bab5.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 5</a>
+                    <a href="bab6.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f0fdf4; border: 1px solid #16a34a; border-radius: 8px; color: #16a34a; font-weight: 700;">Bab 6: Trends</a>
+                    <a href="bab7.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b;">Bab 7</a>
+                </div>
+            </div>
+
+            <!-- KONTEN -->
+            <main style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- 6.1 Manajemen Proyek -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-sitemap"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">6.1 Manajemen Proyek & Struktur Direktori</h2>
+                    </div>
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Dalam pengembangan skala industri, struktur direktori bukan sekadar preferensi estetika, melainkan kebutuhan fungsional untuk kolaborasi dan deployment.
+                    </p>
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">6.1.1 Filosofi Penamaan Berkas</h3>
+                        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Gunakan <strong>Lowercase</strong> dan <strong>Hyphenation</strong> (-) untuk konsistensi di server Linux/Unix.</p>
+                        <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.85rem;">
+                            <li style="background: #fee2e2; padding: 10px; border-radius: 6px; color: #991b1b;">Salah: <code>/Foto Profil.JPG</code></li>
+                            <li style="background: #dcfce7; padding: 10px; border-radius: 6px; color: #166534;">Benar: <code>/foto-profil.jpg</code></li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">6.1.2 Analisis Fungsi Direktori</h3>
+                        <table class="custom-table">
+                            <thead>
+                                <tr><th>Direktori</th><th>Peran & Fungsi Utama</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><code>/src</code></td><td><strong>Source Code:</strong> Dapur pengembangan kode mentah.</td></tr>
+                                <tr><td><code>/dist</code></td><td><strong>Distribution:</strong> Hasil akhir aplikasi siap publish.</td></tr>
+                                <tr><td><code>/assets</code></td><td>Media pendukung (images, icons, fonts).</td></tr>
+                                <tr><td><code>/js/components</code></td><td>Logika UI berbasis komponen (Modular).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 6.2 Standarisasi Airbnb -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-check-double"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">6.2 Standarisasi Kode (Airbnb Style Guide)</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Detail</button>
+                    </div>
+                    <p class="card-desc">Mengadopsi standar de facto industri global untuk menjaga kualitas kode.</p>
+                    
+                    <div class="code-window" style="display: none;">
+// 6.2.1 Manajemen Variabel
+// GOOD: Gunakan const secara default
+const API_URL = "https://api.example.com";
+
+// GOOD: Gunakan let hanya jika nilainya berubah
+let counter = 0;
+counter++;
+
+// 6.2.2 Struktur Data
+// GOOD: Gunakan sintaks literal
+const mahasiswa = {
+    nama: 'Alif',
+    nim: '231011',
+    isActive: true, // Trailing comma disarankan
+};
+
+// 6.2.3 Naming Conventions
+const namaLengkap = '...'; // camelCase untuk variabel
+class UserProfile {}        // PascalCase untuk Class
+const MAX_SIZE = 5000;      // UPPERCASE_SNAKE_CASE untuk konstanta
+                    </div>
+                </div>
+
+                <!-- 6.3 Responsive & Tailwind -->
+                <div class="bento-card">
+                    <h2 class="card-title" style="margin-bottom: 15px;"><i class="fas fa-mobile-alt"></i> 6.3 Responsive Web Design</h2>
+                    <table class="custom-table">
+                        <thead>
+                            <tr><th>Prefix</th><th>Min-Width</th><th>Target</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>default</td><td>&lt; 640px</td><td>Ponsel (Portrait)</td></tr>
+                            <tr><td>sm:</td><td>640px</td><td>Ponsel (Landscape)</td></tr>
+                            <tr><td>md:</td><td>768px</td><td>Tablet</td></tr>
+                            <tr><td>lg:</td><td>1024px</td><td>Laptop</td></tr>
+                            <tr><td>xl:</td><td>1280px</td><td>Desktop Standar</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 6.4 - 6.5 Performa & Keamanan -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div class="bento-card">
+                        <h3 class="card-title"><i class="fas fa-tachometer-alt"></i> 6.4 Web Vitals</h3>
+                        <ul style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">
+                            <li><strong>LCP:</strong> Loading &lt; 2.5s</li>
+                            <li><strong>FID:</strong> Respons &lt; 100ms</li>
+                            <li><strong>CLS:</strong> Stabilitas &lt; 0.1</li>
+                        </ul>
+                    </div>
+                    <div class="bento-card">
+                        <h3 class="card-title"><i class="fas fa-shield-alt"></i> 6.5 Security</h3>
+                        <p style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">Gunakan <code>textContent</code> alih-alih <code>innerHTML</code> untuk mencegah <strong>XSS</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- 6.6 SEO & PWA -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-search-plus"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">6.6 Konfigurasi SEO & PWA</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat JSON</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a;">SEO Lanjutan:</strong>
+                            <p style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">Gunakan <strong>JSON-LD</strong> untuk Schema Markup dan Canonical Tags guna mencegah duplikasi konten.</p>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="color: #16a34a;">Komponen PWA:</strong>
+                            <ul style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">
+                                <li>HTTPS (Secure Context)</li>
+                                <li>Web App Manifest (JSON)</li>
+                                <li>Service Worker (Offline Support)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="code-window" style="display: none; margin-top: 15px;">
+/* manifest.json */
+{
+  "name": "Portal Belajar Kelompok 3",
+  "display": "standalone",
+  "start_url": "/index.html",
+  "theme_color": "#0e7490",
+  "icons": [...]
+}
+                    </div>
+                </div>
+
+                <!-- 6.7 Git Advanced -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-code-branch"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">6.7 Manajemen Versi Git Lanjutan</h2>
+                    </div>
+                    <p class="card-desc" style="margin-bottom: 15px;">Gunakan strategi <strong>Feature Branch</strong> (Git Flow) untuk menjaga kebersihan branch utama.</p>
+                    <div class="code-window">
+# Strategi Percabangan
+git checkout -b feature/navbar-redesign  # Buat fitur baru
+git add .
+git commit -m "Feat: Desain navbar"
+git checkout main
+git merge feature/navbar-redesign        # Gabungkan
+                    </div>
+                </div>
+
+                <!-- 6.8 Deployment & CI/CD -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-server"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">6.8 Deployment & CI/CD Dasar</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-terminal"></i> Workflow YAML</button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 20px;">
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="background: #f0fdf4; padding: 15px; border-radius: 12px; border: 1px solid #bbf7d0;">
+                                <strong style="color: #166534; font-size: 0.9rem;">Pipeline Stages:</strong>
+                                <p style="font-size: 0.75rem; color: #14532d;">Source &rarr; Build &rarr; Test &rarr; Staging &rarr; Production.</p>
+                            </div>
+                            <div style="background: #ecfeff; padding: 15px; border-radius: 12px; border: 1px solid #a5f3fc;">
+                                <strong style="color: #155e75; font-size: 0.9rem;">Modern Tech:</strong>
+                                <p style="font-size: 0.75rem; color: #164e63;">Docker (Container) & PaaS (Vercel/Netlify).</p>
+                            </div>
+                        </div>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <strong style="font-size: 0.9rem; color: #1e293b;">Strategi Zero Downtime:</strong>
+                            <ul style="font-size: 0.8rem; color: #64748b; margin-top: 5px;">
+                                <li><strong>Blue-Green:</strong> Menjalankan dua lingkungan identik secara bergantian.</li>
+                                <li><strong>Canary:</strong> Rilis ke sebagian kecil user dulu untuk testing.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 15px;">
+# .github/workflows/static.yml
+name: Deploy to Pages
+on:
+  push:
+    branches: ["main"]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy
+        uses: actions/deploy-pages@v4
+                    </div>
+                </div>
+
+                <!-- Action Area -->
+                <div class="bento-card action-area" style="background: linear-gradient(135deg, #f0fdf4, #ffffff); border: 2px dashed #bbf7d0; text-align: center; padding: 40px;">
+                    <i class="fas fa-rocket" style="font-size: 3rem; color: #16a34a; margin-bottom: 15px;"></i>
+                    <h3 style="color: #1e293b; margin-bottom: 10px;">Siap Go-Professional?</h3>
+                    <p style="color: #64748b; margin-bottom: 20px;">Tandai materi Tren Modern ini sebagai selesai untuk <strong>+100 XP</strong>.</p>
+                    <button id="mark-complete" data-bab="bab6" class="btn btn-primary">
+                        Selesaikan Bab 6
+                    </button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeDock - Elit Web Learning</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/CodeDc.png" alt="CodeDock Logo" style="height: 60px; object-fit: contain;">
+            </a>
+            
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#">Materi <i class="fas fa-chevron-down dropdown-chevron"></i></a>
+                    <div class="dropdown-content">
+                        <a href="materi/bab1.html">Bab 1: HTML Dasar</a>
+                        <a href="materi/bab2.html">Bab 2: CSS Layout</a>
+                        <a href="materi/bab3.html">Bab 3: JS Dasar</a>
+                        <a href="materi/bab4.html">Bab 4: DOM</a>
+                        <a href="materi/bab5.html">Bab 5: Event</a>
+                        <a href="materi/bab6.html">Bab 6: API</a>
+                        <a href="materi/bab7.html">Bab 7: Final Project</a>
+                    </div>
+                </li>
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+                <li><a href="login.html" class="btn btn-primary" id="auth-btn">Mulai Belajar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="badge-pill" data-animate>The Gold Standard of Education</div>
+            <h1 data-animate>Kuasai Pemrograman Web<br><span class="text-gradient">Dengan Standar Elit</span></h1>
+            <p data-animate>Platform pembelajaran terstruktur yang menggabungkan estetika desain premium dengan kedalaman teknis industri profesional.</p>
+            
+            <div style="display: flex; gap: 20px; justify-content: center;" data-animate>
+                <a href="materi/bab1.html" class="btn btn-primary">
+                    Buka Materi <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="about.html" class="btn btn-outline">
+                    Visi CodeDock
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENTO GRID -->
+    <section class="container">
+        <div class="bento-grid">
+            
+            <!-- 1. Kurikulum -->
+            <div class="bento-card col-8" data-animate>
+                <div>
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3 class="card-title">Kurikulum Terkurasi</h3>
+                    <p class="card-desc">7 Bab fundamental yang dirancang oleh Kelompok 3 untuk membimbing Anda dari nol hingga siap bersaing di industri global.</p>
+                </div>
+                <div style="margin-top: 40px; display: flex; gap: 15px;">
+                    <span class="badge-pill" style="margin:0; font-size: 0.65rem;">Modern HTML5</span>
+                    <span class="badge-pill" style="margin:0; font-size: 0.65rem;">Tailwind CSS</span>
+                    <span class="badge-pill" style="margin:0; font-size: 0.65rem;">JS ES6+</span>
+                </div>
+            </div>
+
+            <!-- 2. XP System -->
+            <div class="bento-card col-4" data-animate>
+                <div>
+                    <div class="card-icon" style="color: var(--accent);"><i class="fas fa-award"></i></div>
+                    <h3 class="card-title">Sistem Gamifikasi</h3>
+                    <p class="card-desc">Tingkatkan level dan kumpulkan XP setiap kali Anda menyelesaikan tantangan koding baru.</p>
+                </div>
+            </div>
+
+            <!-- 3. UI/UX -->
+            <div class="bento-card col-4" data-animate>
+                <div>
+                    <div class="card-icon"><i class="fas fa-magic"></i></div>
+                    <h3 class="card-title">Minimalisme</h3>
+                    <p class="card-desc">Antarmuka yang dirancang untuk meminimalisir gangguan, membantu Anda fokus pada esensi belajar.</p>
+                </div>
+            </div>
+
+            <!-- 4. Community -->
+            <div class="bento-card col-8" data-animate>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="flex: 1;">
+                        <h3 class="card-title">Ekosistem Akademik</h3>
+                        <p class="card-desc" style="max-width: 350px;">Platform eksklusif bagi mahasiswa Teknik Informatika Universitas Pamulang untuk berkolaborasi dan bertumbuh bersama.</p>
+                    </div>
+                    <i class="fas fa-university" style="font-size: 6rem; color: var(--primary); opacity: 0.04; position: absolute; right: 20px; bottom: 10px;"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="container" style="padding-bottom: 120px;">
+        <div style="background: var(--primary); border-radius: 40px; padding: 80px 40px; text-align: center; color: white;" data-animate>
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Siap Memulai Perjalanan Anda?</h2>
+            <p style="opacity: 0.8; max-width: 600px; margin: 0 auto 40px;">Bergabunglah dengan ratusan mahasiswa lainnya yang telah meningkatkan kemampuan web development mereka.</p>
+            <a href="login.html" class="btn" style="background: white; color: var(--primary); border-radius: 50px;">Daftar Sekarang Secara Gratis</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" style="display: inline-block; margin-bottom: 25px;">
+                <img src="images/CodeDock-removebg-preview.png" alt="CodeDock Logo" style="height: 125px; opacity: 0.8;">
+            </a>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 CodeDock by Kelompok 3. Crafted for Global Excellence.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

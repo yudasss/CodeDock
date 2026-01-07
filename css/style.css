@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+:root {
+    /* Palette: Deep Emerald & Gold Lux */
+    --primary: #064e3b;       /* Emerald Deep - Sangat Elegan */
+    --primary-light: #059669; /* Emerald 600 */
+    --accent: #d4af37;        /* Soft Gold Accent */
+    --secondary: #1e293b;     /* Slate 800 */
+
+    --bg-page: #ffffff;       /* Putih Bersih */
+    --bg-soft: #fcfdfc;       /* Mint Sangat Pudar */
+    --bg-card: #ffffff;
+    --glass: rgba(255, 255, 255, 0.85);
+    
+    --text-main: #0f172a;     /* Slate 900 */
+    --text-muted: #64748b;    /* Slate 600 */
+    
+    --border-color: rgba(226, 232, 240, 0.7);
+    
+    --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+    --shadow-float: 0 40px 80px -20px rgba(6, 78, 59, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+li { list-style: none; }
+
+/* --- UTILITIES --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0; /* Konsisten padding */
+    transition: all 0.4s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -1.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px; /* Jarak antar menu lebih rapi */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Jarak icon dengan teks */
+}
+
+.nav-links a:hover, .nav-links a.active {
+    opacity: 1;
+    color: var(--primary);
+}
+
+/* Ikon Chevron Dropdown */
+.dropdown-chevron {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+    margin-top: 2px;
+}
+
+.dropdown:hover .dropdown-chevron {
+    transform: rotate(180deg);
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 35px -10px rgba(6, 78, 59, 0.4);
+    background-color: #043d2e;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* --- HERO --- */
+.hero {
+    padding: 200px 0 120px;
+    text-align: center;
+    background: radial-gradient(circle at top right, rgba(5, 150, 105, 0.05) 0%, transparent 40%);
+}
+
+.badge-pill {
+    background: #ecfdf5;
+    color: var(--primary);
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    display: inline-block;
+    border: 1px solid #d1fae5;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 35px;
+    letter-spacing: -2.5px;
+    color: var(--secondary);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+/* --- BENTO GRID SYSTEM --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    margin-bottom: 120px;
+}
+
+.bento-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 40px; /* Modern Bento Look */
+    padding: 48px;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bento-card:hover {
+    transform: translateY(-12px) scale(1.01);
+    box-shadow: var(--shadow-float);
+    border-color: var(--primary-light);
+}
+
+.col-12 { grid-column: span 12; }
+.col-8 { grid-column: span 8; }
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+
+.card-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--bg-soft);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 32px;
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.8px;
+}
+
+.card-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* --- DROPDOWN --- */
+.dropdown { position: relative; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    min-width: 240px;
+    box-shadow: var(--shadow-float);
+    margin-top: 20px;
+    z-index: 100;
+}
+.dropdown:hover .dropdown-content { display: block; animation: slideUp 0.3s ease; }
+.dropdown-content a {
+    padding: 12px 18px;
+    border-radius: 12px;
+    display: block;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+.dropdown-content a:hover { background: var(--bg-soft); color: var(--primary); }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 100px 0 50px;
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.footer-logo {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* Animations */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+[data-animate].show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- CODE WINDOW & PRESERVED STYLES --- */
+.code-window { 
+    background: #0f172a; 
+    color: #f8fafc; 
+    padding: 20px; 
+    border-radius: 16px; 
+    font-family: 'Consolas', monospace; 
+    margin-top: 20px; 
+    font-size: 0.85rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+/* Styles untuk materi layout yang digunakan di file-file bab */
+.materi-layout { display: flex; flex-direction: column; gap: 40px; }
+.sidebar { 
+    background: white; 
+    padding: 24px; 
+    border-radius: 20px; 
+    border: 1px solid var(--border-color); 
+    /* Dalam layout vertikal, sidebar mungkin tidak sticky di samping */
+}
+
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 3.5rem; }
+    .col-8 { grid-column: span 12; }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .col-6, .col-4 { grid-column: span 12; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; width: 100%;
+        background: white; padding: 30px;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .nav-links.active { display: flex; }
+    .hamburger { display: block; }
+}

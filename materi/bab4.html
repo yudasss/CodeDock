@@ -1,0 +1,497 @@
+<!--
+Nama file       : materi/bab4.html
+Tanggal ngoding : Rabu, 7 Januari 2026
+Kelas           : 05TPLP017
+Kelompok        : Kelompok 3
+Anggota         : Al Amin Abdilah, Alif Ananda, Yuda Prima
+Deskripsi       : Halaman Materi Bab 4 - JavaScript ES6+ Lengkap (Evolusi, Variabel, Arrow Function, Array Methods, DOM, Event, Fetch API, Modul, Studi Kasus).
+-->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bab 4: JavaScript ES6+ - CodeDock</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom Table untuk Alat Pengembangan */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .tool-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: 0.3s;
+        }
+        .tool-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/CodeDc.png" alt="CodeDock Logo" style="height: 60px; object-fit: contain;">
+            </a>
+            
+            <div class="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Materi <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="bab1.html">Bab 1: Pendahuluan</a>
+                        <a href="bab2.html">Bab 2: Fondasi HTML5</a>
+                        <a href="bab3.html">Bab 3: CSS & Tailwind</a>
+                        <a href="bab4.html">Bab 4: JavaScript</a>
+                        <a href="bab5.html">Bab 5: Integrasi</a>
+                        <a href="bab6.html">Bab 6: UI/UX</a>
+                        <a href="bab7.html">Bab 7: Keamanan</a>
+                    </div>
+                </li>
+                <li><a href="../about.html">Tentang</a></li>
+                <li><a href="../contact.html">Kontak</a></li>
+                <li><a href="../login.html" class="btn btn-primary" id="auth-btn">Masuk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-bottom: 80px; padding-top: 40px;">
+        
+        <!-- HEADER BAB -->
+        <div class="chapter-header" style="background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);">
+            <div>
+                <span class="badge-pill" style="margin-bottom: 10px; display: inline-block;">Bab 4</span>
+                <h1 style="color: #1e293b; margin-bottom: 10px;">JavaScript ES6+: Dasar hingga Interaktivitas</h1>
+                <p style="color: #64748b;">Mempelajari evolusi JavaScript modern dan fitur-fitur pentingnya.</p>
+            </div>
+            <div style="text-align: right;">
+                <span style="display: block; font-size: 0.9rem; color: #64748b;">Estimasi</span>
+                <strong style="color: #16a34a; font-size: 1.2rem;">60 Menit</strong>
+            </div>
+        </div>
+
+        <div class="materi-layout" style="padding: 0; display: flex; flex-direction: column; gap: 30px;">
+            
+             <!-- NAVIGASI MATERI (ATAS) -->
+            <div class="bento-card" style="padding: 25px;">
+                <h3 style="margin-bottom: 15px; font-size: 1.1rem; color: #1e293b; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-list-ul" style="color: var(--primary);"></i> Navigasi Materi
+                </h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="bab1.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 1</a>
+                    <a href="bab2.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 2</a>
+                    <a href="bab3.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 3</a>
+                    <a href="bab4.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f0fdf4; border: 1px solid #16a34a; border-radius: 8px; color: #16a34a; font-weight: 700; font-size: 0.9rem; white-space: nowrap;">Bab 4</a>
+                    <a href="bab5.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 5</a>
+                    <a href="bab6.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 6</a>
+                    <a href="bab7.html" style="flex: 1 1 auto; text-align: center; padding: 10px 15px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; color: #64748b; font-size: 0.9rem; transition: all 0.2s; white-space: nowrap;">Bab 7</a>
+                </div>
+            </div>
+
+            <!-- KONTEN UTAMA -->
+            <main style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- 4.1 Evolusi JS -->
+                <div class="bento-card">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div class="card-icon" style="margin: 0;"><i class="fas fa-history"></i></div>
+                        <h2 class="card-title" style="margin: 0; color: #1e293b;">4.1 Evolusi JavaScript: dari ES5 ke ES6+</h2>
+                    </div>
+                    <p class="card-desc">
+                        JavaScript telah berkembang jauh sejak diciptakan pada tahun 1995. Perubahan terbesar dalam sejarah bahasa ini terjadi pada tahun 2015 dengan dirilisnya ES6.
+                    </p>
+
+                    <!-- 4.1.1 Mengapa Migrasi? -->
+                    <div style="margin-top: 25px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.1.1 Mengapa Harus Migrasi ke ES6+?</h3>
+                        <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">
+                            Berdasarkan tinjauan kurikulum industri teknologi terkini (Juan & Budi, 2023), penguasaan fitur-fitur ES6 merupakan prasyarat mutlak sebelum seorang pengembang dapat memahami kerangka kerja modern.
+                        </p>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="background: white; padding: 10px; border-radius: 8px; border: 1px dashed #cbd5e1; font-size: 0.9rem;">
+                                <strong>1. Efisiensi Sintaksis:</strong> Penulisan kode lebih ringkas dan mudah dibaca.
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 8px; border: 1px dashed #cbd5e1; font-size: 0.9rem;">
+                                <strong>2. Keamanan Eksekusi:</strong> Mengurangi potensi bug seperti kebocoran variabel.
+                            </div>
+                            <div style="background: white; padding: 10px; border-radius: 8px; border: 1px dashed #cbd5e1; font-size: 0.9rem;">
+                                <strong>3. Arsitektur Modular:</strong> Memfasilitasi pengembangan aplikasi skala besar.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4.1.2 Tabel Perbandingan -->
+                    <div style="margin-top: 20px;">
+                        <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.1.2 Tabel Perbandingan Sintaks</h3>
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Fitur</th>
+                                    <th>JavaScript Lama (ES5)</th>
+                                    <th>JavaScript Modern (ES6+)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Variabel</td><td><code>var x = 10;</code></td><td><code>let x = 10; / const y = 20;</code></td></tr>
+                                <tr><td>Fungsi</td><td><code>function add(a,b) { return a+b; }</code></td><td><code>const add = (a,b) => a + b;</code></td></tr>
+                                <tr><td>String</td><td><code>'Halo ' + nama + '!';</code></td><td><code>`Halo ${nama}!`</code></td></tr>
+                                <tr><td>Import</td><td><code>require('lib');</code></td><td><code>import lib from 'lib';</code></td></tr>
+                                <tr><td>Async</td><td>Callback Hell / Promises</td><td>Async / Await</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 4.2 Variabel & Scope -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-cube"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">4.2 Variabel (let, const) dan Scope</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Salah satu kelemahan arsitektural paling fatal pada JavaScript versi awal adalah penggunaan kata kunci <code>var</code>. ES6 menyelesaikan masalah ini dengan <code>let</code> dan <code>const</code>.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 4.2.1 Block vs Function Scope -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.2.1 Block Scope vs Function Scope</h3>
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9rem;">
+                                <li style="background: #fee2e2; padding: 15px; border-radius: 8px; border: 1px solid #fecaca; color: #991b1b;">
+                                    <strong>var (Function Scope)</strong><br>
+                                    Variabel "bocor" keluar dari blok logika (if, for).
+                                </li>
+                                <li style="background: #dcfce7; padding: 15px; border-radius: 8px; border: 1px solid #bbf7d0; color: #166534;">
+                                    <strong>let & const (Block Scope)</strong><br>
+                                    Variabel terisolasi aman di dalam kurung kurawal {}.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 4.2.2 Best Practices -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.2.2 Pedoman Penggunaan (Best Practices)</h3>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem; color: #64748b;">
+                                <li style="margin-bottom: 5px;"><i class="fas fa-check-circle" style="color: #16a34a;"></i> <strong>Prioritaskan const:</strong> Gunakan default untuk data yang tidak berubah.</li>
+                                <li style="margin-bottom: 5px;"><i class="fas fa-exclamation-circle" style="color: #facc15;"></i> <strong>Gunakan let Terbatas:</strong> Hanya jika nilai variabel perlu berubah.</li>
+                                <li><i class="fas fa-times-circle" style="color: #ef4444;"></i> <strong>Hindari var:</strong> Praktik buruk dalam kode modern.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// --- PENDEKATAN LAMA (BERISIKO) ---
+if (true) {
+    var zonaBahaya = "Saya bocor ke luar!";
+}
+console.log(zonaBahaya); // Output: "Saya bocor ke luar!"
+
+// --- PENDEKATAN MODERN (AMAN) ---
+if (true) {
+    let zonaAman = "Saya aman di dalam sini.";
+    const zonaKonstan = "Saya juga aman.";
+}
+// console.log(zonaAman); // Error: zonaAman is not defined
+                    </div>
+                </div>
+
+                <!-- 4.3 Syntactic Sugar -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-magic"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">4.3 Arrow Function, Template Literals, Destructuring</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Fitur-fitur ini disebut <strong>Syntactic Sugar</strong>—membuat kode lebih mudah dibaca dan diekspresikan.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 4.3.1 Arrow Function -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.3.1 Arrow Function (=>)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Penulisan fungsi yang lebih ringkas dan perilaku <code>this</code> yang leksikal.</p>
+                            <div class="code-window" style="margin: 0;">
+// ES5
+const hitungLuas = function(p, l) { return p * l; };
+// ES6
+const luasCepat = (p, l) => p * l;
+                            </div>
+                        </div>
+
+                        <!-- 4.3.2 Template Literals -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.3.2 Template Literals (Backticks)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Menyisipkan ekspresi JS langsung ke string dengan <code>${...}</code>.</p>
+                            <div class="code-window" style="margin: 0;">
+console.log(`User ${user} memiliki skor ${skor}`);
+                            </div>
+                        </div>
+
+                        <!-- 4.3.3 Destructuring -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.3.3 Destructuring Assignment</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Mengekstrak data dari Array/Object ke variabel terpisah.</p>
+                            <div class="code-window" style="margin: 0;">
+const { namaLengkap: nama, alamat: { kota } } = mahasiswa;
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Full Source Code Example
+const mahasiswa = { nama: "Alif", nim: "231011" };
+const { nama } = mahasiswa;
+console.log(`Halo, ${nama}!`);
+                    </div>
+                </div>
+
+                <!-- 4.4 Array & Object Methods -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-list-ul"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">4.4 Array & Object Methods Modern</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        ES6 menyediakan metode fungsional (Higher-Order Functions) untuk manipulasi data secara deklaratif.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <!-- 4.4.1 Map -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.4.1 .map()</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Transformasi setiap elemen array.</p>
+                            <div class="code-window" style="margin: 0;">
+const hargaDiskon = hargaDasar.map(item => item * 0.9);
+                            </div>
+                        </div>
+
+                        <!-- 4.4.2 Filter -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.4.2 .filter()</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Penyaringan data berdasarkan kondisi.</p>
+                            <div class="code-window" style="margin: 0;">
+const lulus = nilaiUjian.filter(nilai => nilai >= 70);
+                            </div>
+                        </div>
+
+                        <!-- 4.4.3 Reduce -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.4.3 .reduce()</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Agregasi data menjadi satu nilai.</p>
+                            <div class="code-window" style="margin: 0;">
+const total = keranjang.reduce((acc, curr) => acc + curr, 0);
+                            </div>
+                        </div>
+
+                        <!-- 4.4.4 Spread -->
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.4.4 Spread Operator (...)</h3>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Mengekspansi array/object.</p>
+                            <div class="code-window" style="margin: 0;">
+const hobiBaru = ['Gaming', ...hobiLama];
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Full Example
+const numbers = [1, 2, 3];
+const doubled = numbers.map(x => x * 2);
+console.log(doubled); // [2, 4, 6]
+                    </div>
+                </div>
+
+                <!-- 4.5 DOM Manipulation -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-sitemap"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">4.5 DOM Manipulation dengan Query Selector</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        DOM adalah antarmuka pemrograman untuk dokumen web.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.5.1 Standarisasi Selektor Modern</h3>
+                            <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; font-size: 0.9rem;">
+                                <li style="background: white; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>document.querySelector()</code>: Elemen pertama.</li>
+                                <li style="background: white; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px;"><code>document.querySelectorAll()</code>: Semua elemen (NodeList).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+const judul = document.querySelector('h1');
+judul.textContent = "Diubah via JS";
+judul.classList.add('text-blue-600');
+                    </div>
+                </div>
+
+                <!-- 4.6 Event Handling -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-mouse-pointer"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">4.6 Event Handling</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Interaktivitas web modern berbasis Event-Driven Programming.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.6.1 Pola addEventListener</h3>
+                            <div class="code-window" style="margin: 0;">
+btn.addEventListener('click', (e) => {
+    alert("Diklik!");
+});
+                            </div>
+                        </div>
+                         <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.6.2 Prevent Default</h3>
+                            <div class="code-window" style="margin: 0;">
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Mencegah reload
+});
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Full Source Code Example
+                    </div>
+                </div>
+
+                <!-- 4.7 Fetch API -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-network-wired"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">4.7 Fetch API untuk Konsumsi Data</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Menggantikan AJAX lama dengan Promise modern.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.7.1 Async/Await</h3>
+                            <div class="code-window" style="margin: 0;">
+const getData = async () => {
+  const res = await fetch(url);
+  const data = await res.json();
+};
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Fetch API Full Example
+                    </div>
+                </div>
+
+                <!-- 4.8 Modul -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-boxes"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">4.8 Modul & Import/Export</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Kode</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Memecah kode menjadi file kecil terpisah.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.8.1 Named Export</h3>
+                            <div class="code-window" style="margin: 0;">export const PI = 3.14;</div>
+                        </div>
+                         <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.8.2 Import</h3>
+                            <div class="code-window" style="margin: 0;">import { PI } from './math.js';</div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+&lt;script type="module" src="app.js"&gt;&lt;/script&gt;
+                    </div>
+                </div>
+
+                <!-- 4.9 Studi Kasus -->
+                <div class="bento-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div class="card-icon" style="margin: 0;"><i class="fas fa-clipboard-check"></i></div>
+                            <h2 class="card-title" style="margin: 0; color: #1e293b;">4.9 Studi Kasus: Form Validasi</h2>
+                        </div>
+                        <button class="btn btn-outline toggle-code-btn" style="font-size: 0.8rem; padding: 5px 15px;"><i class="fas fa-code"></i> Lihat Solusi</button>
+                    </div>
+
+                    <p class="card-desc" style="margin-bottom: 20px;">
+                        Membuat form registrasi cerdas dengan umpan balik visual instan.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="font-size: 1rem; color: #16a34a; margin-bottom: 10px; font-weight: 700;">4.9.1 HTML & 4.9.2 JS Logic</h3>
+                            <div class="code-window" style="margin: 0;">
+// Validasi Input Real-time
+el.addEventListener('input', (e) => {
+    if(e.target.value.length < 5) showError();
+});
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-window" style="display: none; margin-top: 20px;">
+// Full Source Code Form Validation
+                    </div>
+                </div>
+
+                <div class="bento-card action-area" style="text-align: center; border: 2px dashed #bbf7d0; background: #f0fdf4;">
+                    <h3 style="color: #16a34a;">Kuasai JS Modern?</h3>
+                    <button id="mark-complete" data-bab="bab4" class="btn btn-primary">Tandai Selesai</button>
+                </div>
+
+            </main>
+        </div>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
